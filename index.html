@@ -952,7 +952,7 @@ const DEFAULT_EXPENSES = [
   {id:17,name:'Traiteur', cat:'Restauration', total:7800, paid:5000, note:'5000 DT payés par Slim — solde 2800 DT restant'},
   {id:6, name:'Bande musicale', cat:'Animation', total:750, paid:250, note:'500 DT restant'},
   {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:0, note:'Non payé'},
-  {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:0, note:'Non encore payée'},
+  {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:500, note:'Avance 500 DT payée — solde 3000 DT restant'},
   {id:21,name:'Coiffeur / Maquillage', cat:'Beauté', total:1000, paid:0, note:'Non payé'},
   {id:4, name:'Acte de mariage (عدل اشهاد)', cat:'Administratif', total:800, paid:400, note:'400 DT restant'},
   // --- Voyage de noces (inclus dans budget global) ---
@@ -998,7 +998,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v10';
+const VER = 'v11';
 function saveExpenses() { try { localStorage.setItem('mwr_exp', JSON.stringify(expenses)); } catch(e){} }
 function saveGifts()    { try { localStorage.setItem('mwr_gft', JSON.stringify(gifts)); } catch(e){} }
 function loadData() {
