@@ -649,7 +649,66 @@ body {
 .cat-bar-amounts span { font-size:9px; color:var(--muted); }
 #h-pct { cursor:pointer; text-decoration: underline dotted rgba(240,217,160,0.6); }
 
-/* ========== RESPONSIVE TWEAKS ========== */
+/* ========== STATS PAGE ========== */
+.stats-toggle {
+  display: flex; gap: 6px; margin-bottom: 18px;
+  background: rgba(0,0,0,0.05); border-radius: 14px; padding: 4px;
+}
+.stats-tog-btn {
+  flex: 1; padding: 8px 4px; border-radius: 10px; border: none;
+  background: transparent; font-size: 11px; font-weight: 700;
+  color: var(--muted); cursor: pointer; transition: all 0.2s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.stats-tog-btn.active {
+  background: white; color: var(--dark);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.stats-big-card {
+  border-radius: 22px; padding: 20px; margin-bottom: 12px;
+  position: relative; overflow: hidden;
+}
+.stats-big-card::before {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:150px; height:150px; border-radius:50%;
+  background: rgba(255,255,255,0.05);
+}
+.stats-row { display: flex; gap: 8px; margin-bottom: 8px; }
+.stats-mini {
+  flex: 1; background: white; border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 12px; text-align: center;
+}
+.stats-mini-icon { font-size: 20px; margin-bottom: 6px; }
+.stats-mini-label { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.stats-mini-val { font-size: 16px; font-weight: 800; margin-top: 3px; letter-spacing: -0.02em; }
+.stats-compare-row {
+  display: flex; gap: 8px; margin-bottom: 8px;
+}
+.stats-compare-card {
+  flex: 1; border-radius: 18px; padding: 14px;
+  border: 1px solid var(--border-soft);
+}
+.stats-compare-name { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+.stats-compare-val  { font-size: 20px; font-weight: 800; letter-spacing: -0.03em; font-family:'Cormorant Garamond',serif; }
+.stats-compare-sub  { font-size: 10px; color: var(--muted); margin-top: 2px; }
+.stats-bar-row { margin-bottom: 12px; }
+.stats-bar-label { display:flex; justify-content:space-between; margin-bottom:4px; }
+.stats-bar-name { font-size:11px; font-weight:600; color:var(--dark); }
+.stats-bar-pct  { font-size:11px; font-weight:800; }
+.stats-bar-track { height:8px; background:rgba(0,0,0,0.07); border-radius:4px; overflow:hidden; }
+.stats-bar-fill  { height:100%; border-radius:4px; transition:width 0.8s cubic-bezier(0.34,1.2,0.64,1); }
+.stats-section-title {
+  font-size:10px; font-weight:700; color:var(--muted); text-transform:uppercase;
+  letter-spacing:0.12em; margin: 16px 0 10px;
+}
+.stats-donut-wrap { display:flex; align-items:center; gap:16px; margin-bottom:12px; }
+.stats-legend { flex:1; }
+.stats-legend-item { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.stats-legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+.stats-legend-label { font-size:11px; color:var(--dark); font-weight:500; }
+.stats-legend-val { font-size:11px; font-weight:700; color:var(--dark); margin-left:auto; }
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== */
 @media (max-width: 380px) {
   .hero-amount { font-size: 34px; }
   .nav-tab { font-size: 9px; }
@@ -717,6 +776,9 @@ body {
       </button>
       <button class="nav-tab" onclick="showPage('dressing',this)">
         <span class="nav-tab-icon">👔</span>Dressing
+      </button>
+      <button class="nav-tab" onclick="showPage('stats',this)">
+        <span class="nav-tab-icon">📊</span>Stats
       </button>
     </div>
   </div>
@@ -877,6 +939,9 @@ body {
     <div class="dress-list" id="dressing-todo"></div>
   </div>
 
+  <!-- ======== STATS PAGE ======== -->
+  <div class="page" id="page-stats"></div>
+
   <button class="fab" id="main-fab" onclick="openAddModal()">+</button>
 </div>
 
@@ -971,6 +1036,56 @@ const DEFAULT_GIFTS = [
   {id:8,person:'Riadh',  amount:600,  status:'paid',   note:'Table basse — payé 100% ✓'},
 ];
 
+// ============================================================
+//  DONNÉES RAHMA
+// ============================================================
+const RAHMA_EXPENSES = [
+  {id:1, name:'Salle des fêtes', cat:'Salle', total:5300, paid:3500,
+    note:'1500 DT payés + 2000 DT sera remboursé par Med Ali — solde 1800 DT restant'},
+  {id:2, name:'Robe Wtiya', cat:'Habillement', total:3000, paid:0, note:'Non encore payée'},
+  {id:3, name:'Hajema', cat:'Beauté', total:1000, paid:300, note:'Solde 700 DT restant'},
+  {id:4, name:'Photographe', cat:'Cérémonie', total:2250, paid:2250,
+    note:'Payé par le remboursement de Med Ali ✓'},
+  {id:5, name:'Traiteur (soirée)', cat:'Cérémonie', total:4000, paid:4000,
+    note:'Payé par Wassila ✓'},
+  {id:6, name:'Hamem', cat:'Beauté', total:1850, paid:200, note:'Solde 1650 DT restant'},
+  {id:7, name:'Troupe', cat:'Animation', total:2200, paid:2200,
+    note:'Payé par Adoula ✓'},
+  {id:8, name:'Hlou + Salé (soirée)', cat:'Cérémonie', total:1000, paid:0, note:'Non encore payé'},
+  {id:9, name:'Robe Hamem', cat:'Habillement', total:300, paid:0, note:'Non encore payée'},
+  {id:10,name:'Robe Soirée Mohamed', cat:'Habillement', total:300, paid:0, note:'Non encore payée'},
+  {id:11,name:'Maison loyer pour soirée', cat:'Salle', total:1500, paid:0, note:'Non encore payé'},
+];
+
+const RAHMA_GIFTS = [
+  {id:1, person:'Zina',     amount:2000, status:'paid',   note:'Reçu ✓'},
+  {id:2, person:'Jihene',   amount:600,  status:'paid',   note:'Reçu ✓'},
+  {id:3, person:'Mohamed',  amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:4, person:'Rami',     amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:5, person:'Borhene',  amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:6, person:'Hedi',     amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:7, person:'Sofiene',  amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:8, person:'Refka',    amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:9, person:'Oumayma',  amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:10,person:'Saif',     amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:11,person:'Salem',    amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:12,person:'Hssan',    amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:13,person:'Saida',    amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:14,person:'Salha',    amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:15,person:'Ajmi',     amount:0,    status:'unpaid', note:'Pas encore reçu'},
+];
+
+const RAHMA_ZHEZ = [
+  {name:"Service à table",              prix:700,  note:'Par Wassila'},
+  {name:'Ménager',                      prix:300,  note:'Par Wassila'},
+  {name:'Égoutoir',                     prix:100,  note:'Par Wassila'},
+  {name:'Boîtes de rangements (réfrigérateur)', prix:75, note:'Par Wassila'},
+  {name:'Des couteaux',                 prix:90,   note:'Par Wassila'},
+  {name:'Tapis de cuisine',             prix:80,   note:'Par Wassila'},
+  {name:'Deux tapis salle de bain',     prix:260,  note:'Par Wassila'},
+  {name:'Défroisseur',                  prix:300,  note:'Par Eya'},
+];
+
 // Vêtements — achetés vs à acheter (pas de montants)
 const DRESSING = [
   {name:'Mocassins',           qte:3,  achete:3},
@@ -998,12 +1113,23 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v11';
-function saveExpenses() { try { localStorage.setItem('mwr_exp', JSON.stringify(expenses)); } catch(e){} }
-function saveGifts()    { try { localStorage.setItem('mwr_gft', JSON.stringify(gifts)); } catch(e){} }
+const VER = 'v14';
+function saveExpenses() {
+  const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
+  try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
+}
+function saveGifts() {
+  const key = currentUser === 'Rahma' ? 'mwr_gft_r' : 'mwr_gft';
+  try { localStorage.setItem(key, JSON.stringify(gifts)); } catch(e){}
+}
 function loadData() {
-  try { const d = localStorage.getItem('mwr_exp'); expenses = d ? JSON.parse(d) : JSON.parse(JSON.stringify(DEFAULT_EXPENSES)); } catch(e) { expenses = JSON.parse(JSON.stringify(DEFAULT_EXPENSES)); }
-  try { const d = localStorage.getItem('mwr_gft'); gifts = d ? JSON.parse(d) : JSON.parse(JSON.stringify(DEFAULT_GIFTS)); } catch(e) { gifts = JSON.parse(JSON.stringify(DEFAULT_GIFTS)); }
+  if (currentUser === 'Rahma') {
+    try { const d = localStorage.getItem('mwr_exp_r'); expenses = d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_EXPENSES)); } catch(e) { expenses = JSON.parse(JSON.stringify(RAHMA_EXPENSES)); }
+    try { const d = localStorage.getItem('mwr_gft_r'); gifts = d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_GIFTS)); } catch(e) { gifts = JSON.parse(JSON.stringify(RAHMA_GIFTS)); }
+  } else {
+    try { const d = localStorage.getItem('mwr_exp'); expenses = d ? JSON.parse(d) : JSON.parse(JSON.stringify(DEFAULT_EXPENSES)); } catch(e) { expenses = JSON.parse(JSON.stringify(DEFAULT_EXPENSES)); }
+    try { const d = localStorage.getItem('mwr_gft'); gifts = d ? JSON.parse(d) : JSON.parse(JSON.stringify(DEFAULT_GIFTS)); } catch(e) { gifts = JSON.parse(JSON.stringify(DEFAULT_GIFTS)); }
+  }
 }
 
 // ============================================================
@@ -1058,13 +1184,32 @@ function showPage(name, btn) {
   document.getElementById('page-' + name).classList.add('active');
   if (btn) btn.classList.add('active');
   document.getElementById('main-fab').style.display = name === 'depenses' ? 'flex' : 'none';
+  if (name === 'stats') renderStats('self');
   closeModal();
 }
 
 // ============================================================
 //  RENDER ALL
 // ============================================================
-function renderAll() { renderDepenses(); renderGifts(); renderDressing(); }
+function renderAll() {
+  renderDepenses();
+  renderGifts();
+  if (currentUser === 'Rahma') renderZhez();
+  else renderDressing();
+  updateTabsForUser();
+}
+
+function updateTabsForUser() {
+  const dressingTab = document.querySelector('.nav-tab[onclick*="dressing"]');
+  if (dressingTab) {
+    if (currentUser === 'Rahma') {
+      dressingTab.innerHTML = '<span class="nav-tab-icon">🏠</span>Zhez';
+      dressingTab.setAttribute('onclick', "showPage('dressing',this)");
+    } else {
+      dressingTab.innerHTML = '<span class="nav-tab-icon">👔</span>Dressing';
+    }
+  }
+}
 
 // ============================================================
 //  DÉPENSES
@@ -1078,8 +1223,20 @@ function renderDepenses() {
   const rest  = total - paid;
   const p     = pct(paid, total);
 
+  // Theme hero card based on user
+  const heroCard = document.getElementById('hero-depenses');
+  if (currentUser === 'Rahma') {
+    heroCard.style.background = 'linear-gradient(145deg, #200D17, #331525)';
+    heroCard.style.borderColor = 'rgba(212,120,138,0.22)';
+  } else {
+    heroCard.style.background = '';
+    heroCard.style.borderColor = '';
+  }
+
   document.getElementById('hero-total').textContent = fmt(total);
-  document.getElementById('hero-sub').textContent   = `${p}% payé · voyage de noces inclus`;
+  document.getElementById('hero-sub').textContent   = currentUser === 'Rahma'
+    ? `${p}% du budget mariage Rahma est payé`
+    : `${p}% payé · voyage de noces inclus`;
   document.getElementById('hero-bar').style.width   = p + '%';
   document.getElementById('h-paid').textContent     = fmt(paid);
   document.getElementById('h-rest').textContent     = fmt(rest);
@@ -1508,6 +1665,283 @@ function renderDressing() {
   const todoEl = document.getElementById('dressing-todo');
   if (doneEl) doneEl.innerHTML = done.length ? done.map(makeRow).join('') : '<div style="padding:12px 16px;font-size:12px;color:var(--muted)">Aucun article acheté</div>';
   if (todoEl) todoEl.innerHTML = todo.length ? todo.map(makeRow).join('') : '<div style="padding:12px 16px;font-size:12px;color:var(--success)">✓ Tout est acheté !</div>';
+}
+
+// ============================================================
+//  ZHEZ (Rahma only)
+// ============================================================
+function renderZhez() {
+  const total = RAHMA_ZHEZ.reduce((s,z) => s + z.prix, 0);
+
+  // Update dressing page for Rahma
+  const page = document.getElementById('page-dressing');
+  page.innerHTML = `
+    <div class="hero-card" style="background:linear-gradient(145deg,#1A0D20,#2A1535)">
+      <div class="hero-eyebrow" style="color:#C97AE0">Zhez — Articles maison</div>
+      <div class="hero-amount" style="color:#E8C0F5">${fmt(total)}</div>
+      <div class="hero-sub">Articles offerts · tous en attente</div>
+      <div class="progress-track"><div class="progress-bar" style="width:0%;background:linear-gradient(90deg,#7A2A9A,#C97AE0)"></div></div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-label">Total articles</div><div class="hero-stat-val" style="color:#E8C0F5">${RAHMA_ZHEZ.length}</div></div>
+        <div class="hero-stat"><div class="hero-stat-label">Valeur totale</div><div class="hero-stat-val" style="color:#E8C0F5">${fmt(total)}</div></div>
+        <div class="hero-stat"><div class="hero-stat-label">Statut</div><div class="hero-stat-val val-red">En attente</div></div>
+      </div>
+    </div>
+
+    <div class="section-hdr">
+      <div class="section-hdr-left">
+        <div class="section-dot" style="background:#C97AE0"></div>
+        <div class="section-title">Articles à recevoir</div>
+      </div>
+      <span class="section-badge" style="background:#F0E0F8;color:#6A1A8A">${RAHMA_ZHEZ.length}</span>
+    </div>
+
+    <div class="dress-list">
+      ${RAHMA_ZHEZ.map(z => `
+        <div class="dress-item">
+          <div>
+            <div class="dress-name">${z.name}</div>
+            <div style="font-size:10px;color:var(--muted);margin-top:2px">${z.note}</div>
+          </div>
+          <span class="dress-badge dress-todo">${fmt(z.prix)}</span>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+// ============================================================
+//  STATS
+// ============================================================
+let statsView = 'self';
+
+function renderStats(view) {
+  statsView = view;
+  const page = document.getElementById('page-stats');
+
+  // Mohamed data (always from DEFAULT_EXPENSES)
+  const mExp = (() => {
+    try { const d = localStorage.getItem('mwr_exp'); return d ? JSON.parse(d) : JSON.parse(JSON.stringify(DEFAULT_EXPENSES)); } catch(e) { return JSON.parse(JSON.stringify(DEFAULT_EXPENSES)); }
+  })();
+  const mGift = (() => {
+    try { const d = localStorage.getItem('mwr_gft'); return d ? JSON.parse(d) : JSON.parse(JSON.stringify(DEFAULT_GIFTS)); } catch(e) { return JSON.parse(JSON.stringify(DEFAULT_GIFTS)); }
+  })();
+
+  // Rahma data
+  const rExp = (() => {
+    try { const d = localStorage.getItem('mwr_exp_r'); return d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_EXPENSES)); } catch(e) { return JSON.parse(JSON.stringify(RAHMA_EXPENSES)); }
+  })();
+  const rGift = (() => {
+    try { const d = localStorage.getItem('mwr_gft_r'); return d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_GIFTS)); } catch(e) { return JSON.parse(JSON.stringify(RAHMA_GIFTS)); }
+  })();
+
+  // Compute stats
+  const mTotal = mExp.reduce((s,e)=>s+e.total,0);
+  const mPaid  = mExp.reduce((s,e)=>s+e.paid,0);
+  const mRest  = mTotal - mPaid;
+  const mGiftTotal = mGift.filter(g=>g.status==='paid').reduce((s,g)=>s+g.amount,0);
+  const mPct   = pct(mPaid, mTotal);
+
+  const rTotal = rExp.reduce((s,e)=>s+e.total,0);
+  const rPaid  = rExp.reduce((s,e)=>s+e.paid,0);
+  const rRest  = rTotal - rPaid;
+  const rGiftTotal = rGift.filter(g=>g.status==='paid').reduce((s,g)=>s+g.amount,0);
+  const rPct   = pct(rPaid, rTotal);
+
+  const combTotal = mTotal + rTotal;
+  const combPaid  = mPaid + rPaid;
+  const combRest  = combTotal - combPaid;
+  const combGift  = mGiftTotal + rGiftTotal;
+  const combPct   = pct(combPaid, combTotal);
+
+  const isMohamed = currentUser === 'Mohamed';
+  const selfTotal = isMohamed ? mTotal : rTotal;
+  const selfPaid  = isMohamed ? mPaid  : rPaid;
+  const selfRest  = isMohamed ? mRest  : rRest;
+  const selfGift  = isMohamed ? mGiftTotal : rGiftTotal;
+  const selfPct   = isMohamed ? mPct   : rPct;
+  const selfColor = isMohamed ? '#1A4A7A' : '#8B2A4A';
+  const selfLight = isMohamed ? '#A8D4F5' : '#F5C0D0';
+  const selfBar   = isMohamed ? 'linear-gradient(90deg,#0A4A7A,#2A8ABD)' : 'linear-gradient(90deg,#8B2A4A,#D4788A)';
+  const selfName  = isMohamed ? 'Mohamed' : 'Rahma';
+
+  const toggleHTML = `
+    <div class="stats-toggle">
+      <button class="stats-tog-btn${view==='self'?' active':''}" onclick="renderStats('self')">👤 Mon bilan</button>
+      <button class="stats-tog-btn${view==='other'?' active':''}" onclick="renderStats('other')">${isMohamed?'💗 Rahma':'💙 Mohamed'}</button>
+      <button class="stats-tog-btn${view==='both'?' active':''}" onclick="renderStats('both')">💍 Ensemble</button>
+    </div>
+  `;
+
+  let content = '';
+
+  if (view === 'self') {
+    content = renderStatsSingle(selfName, selfTotal, selfPaid, selfRest, selfGift, selfPct, selfColor, selfLight, selfBar, isMohamed ? mExp : rExp);
+  } else if (view === 'other') {
+    const oName  = isMohamed ? 'Rahma' : 'Mohamed';
+    const oTotal = isMohamed ? rTotal : mTotal;
+    const oPaid  = isMohamed ? rPaid  : mPaid;
+    const oRest  = isMohamed ? rRest  : mRest;
+    const oGift  = isMohamed ? rGiftTotal : mGiftTotal;
+    const oPct   = isMohamed ? rPct   : mPct;
+    const oColor = isMohamed ? '#8B2A4A' : '#1A4A7A';
+    const oLight = isMohamed ? '#F5C0D0' : '#A8D4F5';
+    const oBar   = isMohamed ? 'linear-gradient(90deg,#8B2A4A,#D4788A)' : 'linear-gradient(90deg,#0A4A7A,#2A8ABD)';
+    content = renderStatsSingle(oName, oTotal, oPaid, oRest, oGift, oPct, oColor, oLight, oBar, isMohamed ? rExp : mExp);
+  } else {
+    // BOTH combined
+    content = renderStatsBoth(
+      mTotal, mPaid, mRest, mGiftTotal, mPct,
+      rTotal, rPaid, rRest, rGiftTotal, rPct,
+      combTotal, combPaid, combRest, combGift, combPct
+    );
+  }
+
+  page.innerHTML = `<div style="padding-bottom:20px">${toggleHTML}${content}</div>`;
+}
+
+function renderStatsSingle(name, total, paid, rest, giftTotal, p, color, light, barGrad, expList) {
+  const isMohamed = name === 'Mohamed';
+  const bgGrad = isMohamed
+    ? 'linear-gradient(145deg,#1A1208,#2A1E10)'
+    : 'linear-gradient(145deg,#200D17,#331525)';
+  const borderCol = isMohamed ? 'rgba(201,168,76,0.22)' : 'rgba(212,120,138,0.22)';
+
+  // Category breakdown
+  const cats = [...new Set(expList.map(e=>e.cat))];
+  const catRows = cats.map(cat => {
+    const items = expList.filter(e=>e.cat===cat);
+    const cT = items.reduce((s,e)=>s+e.total,0);
+    const cP = items.reduce((s,e)=>s+e.paid,0);
+    const cPct = pct(cP,cT);
+    const icon = CAT_ICONS[cat]||'📦';
+    return {cat,cT,cP,cPct,icon};
+  }).sort((a,b)=>b.cT-a.cT);
+
+  const netBalance = giftTotal - rest;
+
+  return `
+    <div class="stats-big-card" style="background:${bgGrad};border:1px solid ${borderCol}">
+      <div style="font-size:9px;color:${light};letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px">Bilan — ${name}</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;color:${light};line-height:1;margin-bottom:4px">${fmt(total)}</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:16px">Budget total mariage</div>
+      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:16px">
+        <div style="height:100%;width:${p}%;${barGrad.includes('gradient')?'background:'+barGrad:''};border-radius:3px"></div>
+      </div>
+      <div style="display:flex;gap:0">
+        <div style="flex:1"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">Payé</div><div style="font-size:14px;font-weight:700;color:#7DD3A0;margin-top:3px">${fmt(paid)}</div></div>
+        <div style="flex:1;border-left:1px solid rgba(255,255,255,0.07);padding-left:12px;margin-left:12px"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">Restant</div><div style="font-size:14px;font-weight:700;color:#F09090;margin-top:3px">${fmt(rest)}</div></div>
+        <div style="flex:1;border-left:1px solid rgba(255,255,255,0.07);padding-left:12px;margin-left:12px"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">Avancement</div><div style="font-size:14px;font-weight:700;color:${light};margin-top:3px">${p}%</div></div>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stats-mini"><div class="stats-mini-icon">🎁</div><div class="stats-mini-label">Cadeaux reçus</div><div class="stats-mini-val" style="color:var(--success)">${fmt(giftTotal)}</div></div>
+      <div class="stats-mini"><div class="stats-mini-icon">${netBalance>=0?'📈':'📉'}</div><div class="stats-mini-label">Solde net</div><div class="stats-mini-val" style="color:${netBalance>=0?'var(--success)':'var(--danger)'}">${netBalance>=0?'+':''}${fmt(netBalance)}</div></div>
+    </div>
+
+    <div class="stats-section-title">Répartition par catégorie</div>
+    ${catRows.map(r=>`
+      <div class="stats-bar-row">
+        <div class="stats-bar-label">
+          <div class="stats-bar-name">${r.icon} ${r.cat}</div>
+          <div class="stats-bar-pct" style="color:${r.cPct===100?'var(--success)':r.cPct>0?'var(--warning)':'var(--danger)'}">${r.cPct}% · ${fmt(r.cT)}</div>
+        </div>
+        <div class="stats-bar-track"><div class="stats-bar-fill" style="width:${r.cPct}%;background:${color}"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-top:3px">
+          <span style="font-size:9px;color:var(--muted)">Payé : ${fmt(r.cP)}</span>
+          <span style="font-size:9px;color:${r.cT-r.cP>0?'var(--danger)':'var(--success)'}">Reste : ${fmt(r.cT-r.cP)}</span>
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
+
+function renderStatsBoth(mTotal,mPaid,mRest,mGift,mPct,rTotal,rPaid,rRest,rGift,rPct,cTotal,cPaid,cRest,cGift,cPct) {
+  const netComb = cGift - cRest;
+  return `
+    <!-- COMBINED HERO -->
+    <div class="stats-big-card" style="background:linear-gradient(145deg,#1A1208,#2A1E10);border:1px solid rgba(201,168,76,0.22)">
+      <div style="font-size:9px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px">💍 Bilan combiné — Mohamed & Rahma</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;color:var(--gold-light);line-height:1;margin-bottom:4px">${fmt(cTotal)}</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:16px">Budget total des deux mariages</div>
+      <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:16px">
+        <div style="height:100%;width:${cPct}%;background:linear-gradient(90deg,var(--gold-dark),var(--gold));border-radius:3px"></div>
+      </div>
+      <div style="display:flex;gap:0">
+        <div style="flex:1"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">Payé</div><div style="font-size:14px;font-weight:700;color:#7DD3A0;margin-top:3px">${fmt(cPaid)}</div></div>
+        <div style="flex:1;border-left:1px solid rgba(255,255,255,0.07);padding-left:12px;margin-left:12px"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">Restant</div><div style="font-size:14px;font-weight:700;color:#F09090;margin-top:3px">${fmt(cRest)}</div></div>
+        <div style="flex:1;border-left:1px solid rgba(255,255,255,0.07);padding-left:12px;margin-left:12px"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">Global</div><div style="font-size:14px;font-weight:700;color:var(--gold-light);margin-top:3px">${cPct}%</div></div>
+      </div>
+    </div>
+
+    <!-- GIFTS COMBINED -->
+    <div class="stats-row">
+      <div class="stats-mini"><div class="stats-mini-icon">🎁</div><div class="stats-mini-label">Cadeaux total</div><div class="stats-mini-val" style="color:var(--success)">${fmt(cGift)}</div></div>
+      <div class="stats-mini"><div class="stats-mini-icon">${netComb>=0?'📈':'📉'}</div><div class="stats-mini-label">Solde net</div><div class="stats-mini-val" style="color:${netComb>=0?'var(--success)':'var(--danger)'}">${netComb>=0?'+':''}${fmt(netComb)}</div></div>
+    </div>
+
+    <!-- COMPARISON -->
+    <div class="stats-section-title">Comparaison Mohamed vs Rahma</div>
+    <div class="stats-compare-row">
+      <div class="stats-compare-card" style="background:rgba(26,74,122,0.06);border-color:rgba(26,74,122,0.2)">
+        <div class="stats-compare-name" style="color:#1A4A7A">💙 Mohamed</div>
+        <div class="stats-compare-val" style="color:#1A4A7A">${fmt(mTotal)}</div>
+        <div class="stats-compare-sub">Budget total</div>
+        <div style="height:4px;background:rgba(0,0,0,0.07);border-radius:2px;overflow:hidden;margin-top:10px">
+          <div style="height:100%;width:${mPct}%;background:linear-gradient(90deg,#0A4A7A,#2A8ABD);border-radius:2px"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px">
+          <span style="font-size:9px;color:var(--success);font-weight:700">${fmt(mPaid)} payé</span>
+          <span style="font-size:9px;color:var(--danger);font-weight:700">${mPct}%</span>
+        </div>
+      </div>
+      <div class="stats-compare-card" style="background:rgba(139,42,74,0.06);border-color:rgba(139,42,74,0.2)">
+        <div class="stats-compare-name" style="color:#8B2A4A">💗 Rahma</div>
+        <div class="stats-compare-val" style="color:#8B2A4A">${fmt(rTotal)}</div>
+        <div class="stats-compare-sub">Budget total</div>
+        <div style="height:4px;background:rgba(0,0,0,0.07);border-radius:2px;overflow:hidden;margin-top:10px">
+          <div style="height:100%;width:${rPct}%;background:linear-gradient(90deg,#8B2A4A,#D4788A);border-radius:2px"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px">
+          <span style="font-size:9px;color:var(--success);font-weight:700">${fmt(rPaid)} payé</span>
+          <span style="font-size:9px;color:var(--danger);font-weight:700">${rPct}%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESTANT COMPARISON -->
+    <div class="stats-section-title">Restant à payer</div>
+    <div class="stats-bar-row">
+      <div class="stats-bar-label">
+        <div class="stats-bar-name">💙 Mohamed</div>
+        <div class="stats-bar-pct" style="color:var(--danger)">${fmt(mRest)}</div>
+      </div>
+      <div class="stats-bar-track"><div class="stats-bar-fill" style="width:${pct(mRest,cRest||1)}%;background:#1A4A7A"></div></div>
+    </div>
+    <div class="stats-bar-row">
+      <div class="stats-bar-label">
+        <div class="stats-bar-name">💗 Rahma</div>
+        <div class="stats-bar-pct" style="color:var(--danger)">${fmt(rRest)}</div>
+      </div>
+      <div class="stats-bar-track"><div class="stats-bar-fill" style="width:${pct(rRest,cRest||1)}%;background:#8B2A4A"></div></div>
+    </div>
+
+    <!-- CADEAUX COMPARISON -->
+    <div class="stats-section-title">Cadeaux reçus</div>
+    <div class="stats-compare-row">
+      <div class="stats-compare-card" style="background:rgba(61,122,82,0.06);border-color:rgba(61,122,82,0.2)">
+        <div class="stats-compare-name" style="color:var(--success)">💙 Mohamed</div>
+        <div class="stats-compare-val" style="color:var(--success)">${fmt(mGift)}</div>
+        <div class="stats-compare-sub">Total reçu</div>
+      </div>
+      <div class="stats-compare-card" style="background:rgba(61,122,82,0.06);border-color:rgba(61,122,82,0.2)">
+        <div class="stats-compare-name" style="color:var(--success)">💗 Rahma</div>
+        <div class="stats-compare-val" style="color:var(--success)">${fmt(rGift)}</div>
+        <div class="stats-compare-sub">Total reçu</div>
+      </div>
+    </div>
+  `;
 }
 
 // ============================================================
