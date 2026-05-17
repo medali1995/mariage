@@ -1075,16 +1075,24 @@ const RAHMA_GIFTS = [
   {id:15,person:'Ajmi',     amount:0,    status:'unpaid', note:'Pas encore reçu'},
 ];
 
-const RAHMA_ZHEZ = [
-  {name:"Service à table",              prix:700,  note:'Par Wassila'},
-  {name:'Ménager',                      prix:300,  note:'Par Wassila'},
-  {name:'Égoutoir',                     prix:100,  note:'Par Wassila'},
-  {name:'Boîtes de rangements (réfrigérateur)', prix:75, note:'Par Wassila'},
-  {name:'Des couteaux',                 prix:90,   note:'Par Wassila'},
-  {name:'Tapis de cuisine',             prix:80,   note:'Par Wassila'},
-  {name:'Deux tapis salle de bain',     prix:260,  note:'Par Wassila'},
-  {name:'Défroisseur',                  prix:300,  note:'Par Eya'},
+const RAHMA_ZHEZ_DEFAULT = [
+  {id:1, name:"Service à table",              prix:700,  note:'Par Wassila',      paid:false},
+  {id:2, name:'Ménager',                      prix:300,  note:'Par Wassila',      paid:true},
+  {id:3, name:'Égoutoir',                     prix:100,  note:'Par Wassila',      paid:false},
+  {id:4, name:'Boîtes de rangements (réfrigérateur)', prix:75, note:'Par Wassila', paid:false},
+  {id:5, name:'Des couteaux',                 prix:90,   note:'Par Wassila',      paid:false},
+  {id:6, name:'Tapis de cuisine',             prix:80,   note:'Par Wassila',      paid:false},
+  {id:7, name:'Deux tapis salle de bain',     prix:260,  note:'Par Wassila',      paid:false},
+  {id:8, name:'Défroisseur',                  prix:300,  note:'Par Eya',          paid:false},
 ];
+let RAHMA_ZHEZ = [];
+function loadZhez() {
+  try {
+    const d = localStorage.getItem('mwr_zhez');
+    RAHMA_ZHEZ = d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_ZHEZ_DEFAULT));
+  } catch(e) { RAHMA_ZHEZ = JSON.parse(JSON.stringify(RAHMA_ZHEZ_DEFAULT)); }
+}
+function saveZhez() { try { localStorage.setItem('mwr_zhez', JSON.stringify(RAHMA_ZHEZ)); } catch(e){} }
 
 // Vêtements — achetés vs à acheter (pas de montants)
 const DRESSING = [
@@ -1113,7 +1121,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v14';
+const VER = 'v16';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
@@ -1123,6 +1131,7 @@ function saveGifts() {
   try { localStorage.setItem(key, JSON.stringify(gifts)); } catch(e){}
 }
 function loadData() {
+  loadZhez();
   if (currentUser === 'Rahma') {
     try { const d = localStorage.getItem('mwr_exp_r'); expenses = d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_EXPENSES)); } catch(e) { expenses = JSON.parse(JSON.stringify(RAHMA_EXPENSES)); }
     try { const d = localStorage.getItem('mwr_gft_r'); gifts = d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_GIFTS)); } catch(e) { gifts = JSON.parse(JSON.stringify(RAHMA_GIFTS)); }
@@ -1671,43 +1680,81 @@ function renderDressing() {
 //  ZHEZ (Rahma only)
 // ============================================================
 function renderZhez() {
-  const total = RAHMA_ZHEZ.reduce((s,z) => s + z.prix, 0);
+  const total   = RAHMA_ZHEZ.reduce((s,z) => s + z.prix, 0);
+  const paidAmt = RAHMA_ZHEZ.filter(z=>z.paid).reduce((s,z) => s + z.prix, 0);
+  const restAmt = total - paidAmt;
+  const p       = pct(paidAmt, total);
+  const paidItems = RAHMA_ZHEZ.filter(z=>z.paid);
+  const todoItems = RAHMA_ZHEZ.filter(z=>!z.paid);
 
-  // Update dressing page for Rahma
   const page = document.getElementById('page-dressing');
   page.innerHTML = `
-    <div class="hero-card" style="background:linear-gradient(145deg,#1A0D20,#2A1535)">
+    <div class="hero-card" style="background:linear-gradient(145deg,#1A0D20,#2A1535);border:1px solid rgba(201,120,200,0.22)">
       <div class="hero-eyebrow" style="color:#C97AE0">Zhez — Articles maison</div>
       <div class="hero-amount" style="color:#E8C0F5">${fmt(total)}</div>
-      <div class="hero-sub">Articles offerts · tous en attente</div>
-      <div class="progress-track"><div class="progress-bar" style="width:0%;background:linear-gradient(90deg,#7A2A9A,#C97AE0)"></div></div>
+      <div class="hero-sub">${p}% des articles payés</div>
+      <div class="progress-track"><div class="progress-bar" style="width:${p}%;background:linear-gradient(90deg,#7A2A9A,#C97AE0)"></div></div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-label">Total articles</div><div class="hero-stat-val" style="color:#E8C0F5">${RAHMA_ZHEZ.length}</div></div>
-        <div class="hero-stat"><div class="hero-stat-label">Valeur totale</div><div class="hero-stat-val" style="color:#E8C0F5">${fmt(total)}</div></div>
-        <div class="hero-stat"><div class="hero-stat-label">Statut</div><div class="hero-stat-val val-red">En attente</div></div>
+        <div class="hero-stat"><div class="hero-stat-label">Payé</div><div class="hero-stat-val" style="color:#7DD3A0">${fmt(paidAmt)}</div></div>
+        <div class="hero-stat" style="padding-left:12px;margin-left:12px"><div class="hero-stat-label">Restant</div><div class="hero-stat-val val-red">${fmt(restAmt)}</div></div>
+        <div class="hero-stat" style="padding-left:12px;margin-left:12px"><div class="hero-stat-label">Articles</div><div class="hero-stat-val" style="color:#E8C0F5">${paidItems.length}/${RAHMA_ZHEZ.length}</div></div>
       </div>
     </div>
 
+    ${paidItems.length ? `
     <div class="section-hdr">
       <div class="section-hdr-left">
-        <div class="section-dot" style="background:#C97AE0"></div>
-        <div class="section-title">Articles à recevoir</div>
+        <div class="section-dot" style="background:#3D7A52"></div>
+        <div class="section-title">Articles payés ✓</div>
       </div>
-      <span class="section-badge" style="background:#F0E0F8;color:#6A1A8A">${RAHMA_ZHEZ.length}</span>
+      <span class="section-badge" style="background:#E8F5EE;color:#1E5032">${paidItems.length}</span>
     </div>
-
-    <div class="dress-list">
-      ${RAHMA_ZHEZ.map(z => `
+    <div class="dress-list" style="margin-bottom:14px">
+      ${paidItems.map(z => `
         <div class="dress-item">
           <div>
             <div class="dress-name">${z.name}</div>
             <div style="font-size:10px;color:var(--muted);margin-top:2px">${z.note}</div>
           </div>
-          <span class="dress-badge dress-todo">${fmt(z.prix)}</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:12px;font-weight:700;color:var(--success)">${fmt(z.prix)}</span>
+            <span class="dress-badge dress-done">✓ Payé</span>
+          </div>
+        </div>
+      `).join('')}
+    </div>` : ''}
+
+    <div class="section-hdr">
+      <div class="section-hdr-left">
+        <div class="section-dot" style="background:#C53030"></div>
+        <div class="section-title">À recevoir / payer</div>
+      </div>
+      <span class="section-badge" style="background:#FDEAEA;color:#7A1F1F">${todoItems.length}</span>
+    </div>
+    <div class="dress-list">
+      ${todoItems.map(z => `
+        <div class="dress-item" onclick="toggleZhezPaid(${z.id})" style="cursor:pointer">
+          <div>
+            <div class="dress-name">${z.name}</div>
+            <div style="font-size:10px;color:var(--muted);margin-top:2px">${z.note} · appuyer pour marquer payé</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:12px;font-weight:700;color:var(--dark)">${fmt(z.prix)}</span>
+            <span class="dress-badge dress-todo">En attente</span>
+          </div>
         </div>
       `).join('')}
     </div>
   `;
+}
+
+function toggleZhezPaid(id) {
+  const idx = RAHMA_ZHEZ.findIndex(z=>z.id===id);
+  if (idx < 0) return;
+  RAHMA_ZHEZ[idx].paid = !RAHMA_ZHEZ[idx].paid;
+  saveZhez();
+  renderZhez();
+  toast(RAHMA_ZHEZ[idx].paid ? '✓ Article marqué payé' : 'Article remis en attente');
 }
 
 // ============================================================
@@ -1742,8 +1789,10 @@ function renderStats(view) {
   const mGiftTotal = mGift.filter(g=>g.status==='paid').reduce((s,g)=>s+g.amount,0);
   const mPct   = pct(mPaid, mTotal);
 
-  const rTotal = rExp.reduce((s,e)=>s+e.total,0);
-  const rPaid  = rExp.reduce((s,e)=>s+e.paid,0);
+  const zhezTotal = RAHMA_ZHEZ.reduce((s,z)=>s+z.prix,0);
+  const zhezPaid  = RAHMA_ZHEZ.filter(z=>z.paid).reduce((s,z)=>s+z.prix,0);
+  const rTotal = rExp.reduce((s,e)=>s+e.total,0) + zhezTotal;
+  const rPaid  = rExp.reduce((s,e)=>s+e.paid,0)  + zhezPaid;
   const rRest  = rTotal - rPaid;
   const rGiftTotal = rGift.filter(g=>g.status==='paid').reduce((s,g)=>s+g.amount,0);
   const rPct   = pct(rPaid, rTotal);
