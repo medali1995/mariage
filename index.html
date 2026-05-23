@@ -356,6 +356,7 @@ body {
   border-radius: 20px; flex-shrink: 0; white-space: nowrap; letter-spacing: 0.04em; text-transform: uppercase;
 }
 .badge-paid { background: var(--success-bg); color: var(--success); }
+.badge-promised { background: #EEF0FB; color: #3A4AAA; }
 .badge-partial { background: var(--warning-bg); color: var(--warning); }
 .badge-unpaid { background: var(--danger-bg); color: var(--danger); }
 
@@ -832,7 +833,7 @@ body {
           <div class="hero-stat-val" style="color:#F5C0D0" id="g-received">0</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-label">Non reçu ⚠️</div>
+          <div class="hero-stat-label">🤝 Promesses</div>
           <div class="hero-stat-val val-red" id="g-pending">0</div>
         </div>
         <div class="hero-stat">
@@ -1021,19 +1022,19 @@ const DEFAULT_EXPENSES = [
   {id:21,name:'Coiffeur / Maquillage', cat:'Beauté', total:1000, paid:0, note:'Non payé'},
   {id:4, name:'Acte de mariage (عدل اشهاد)', cat:'Administratif', total:800, paid:500, note:'500 DT payés — solde 300 DT restant'},
   // --- Voyage de noces (inclus dans budget global) ---
-  {id:100,name:'Voyage de noces — Istanbul ✈️', cat:'Voyage', total:14750, paid:14750,
-    note:'Entièrement payé ✓ — Billets 4250 DT + Hôtel 2500 DT + Sur place 8000 DT · Juillet 2025 · 15 jours'},
+  {id:100,name:'Voyage de noces — Malaisie & Thaïlande ✈️', cat:'Voyage', total:14750, paid:14750,
+    note:'Entièrement payé ✓ — Billets 4250 DT + Hôtel 2500 DT + Sur place 8000 DT · Malaisie & Thaïlande'},
 ];
 
 const DEFAULT_GIFTS = [
-  {id:1,person:'Slim',   amount:5000, status:'paid',   note:'5000 DT payés pour le traiteur ✓ — solde 2800 DT restant à régler'},
-  {id:2,person:'Najwa',  amount:1000, status:'paid',   note:'Hlou en nature ✓'},
-  {id:3,person:'Amal',   amount:2000, status:'paid',   note:'2000 DT total : 1750 DT Meuble Dressing + 250 DT Meuble TV ✓'},
-  {id:4,person:'Syrine', amount:2000, status:'paid',   note:'2000 DT total : 1700 DT TV 65" + 300 DT Frikha Concept ✓'},
-  {id:5,person:'Raslen', amount:430,  status:'paid',   note:'GAZ en nature ✓'},
-  {id:6,person:'Oussema',amount:2800, status:'paid',   note:'Table salle à manger — payé 100% ✓'},
-  {id:7,person:'Aymen',  amount:700,  status:'paid',   note:'700 DT reçus — affectés au paiement de Frikha Concept ✓'},
-  {id:8,person:'Riadh',  amount:600,  status:'paid',   note:'Table basse — payé 100% ✓'},
+  {id:1,person:'Slim',   amount:5000, status:'promised', note:'Traiteur payé en nature — promesse sûre, non remis en main propre'},
+  {id:2,person:'Najwa',  amount:1000, status:'promised', note:'Hlou en nature — promesse sûre, non remis en main propre'},
+  {id:3,person:'Amal',   amount:2000, status:'promised', note:'Meuble Dressing — promesse sûre, non remis en main propre'},
+  {id:4,person:'Syrine', amount:2000, status:'promised', note:'1700 DT TV + 300 DT Frikha — promesse sûre, non remis en main propre'},
+  {id:5,person:'Raslen', amount:430,  status:'paid',     note:'✅ Reçu en main propre — GAZ en nature'},
+  {id:6,person:'Oussema',amount:2800, status:'promised', note:'Table salle à manger — promesse sûre, non remis en main propre'},
+  {id:7,person:'Aymen',  amount:700,  status:'promised', note:'Affecté à Frikha Concept — promesse sûre, non remis en main propre'},
+  {id:8,person:'Riadh',  amount:600,  status:'paid',     note:'✅ Reçu en main propre — Table basse'},
 ];
 
 // ============================================================
@@ -1121,7 +1122,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v20';
+const VER = 'v21';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
@@ -1554,22 +1555,24 @@ function closeChart() {
 //  CADEAUX
 // ============================================================
 function renderGifts() {
-  const received = gifts.filter(g => g.status === 'paid').reduce((s, g) => s + g.amount, 0);
-  const pending  = gifts.filter(g => g.status !== 'paid').reduce((s, g) => s + g.amount, 0);
-  const totalAll = gifts.reduce((s, g) => s + g.amount, 0);
-  const p = pct(received, totalAll);
+  const received  = gifts.filter(g => g.status === 'paid').reduce((s, g) => s + g.amount, 0);
+  const promised  = gifts.filter(g => g.status === 'promised').reduce((s, g) => s + g.amount, 0);
+  const pending   = gifts.filter(g => g.status === 'unpaid').reduce((s, g) => s + g.amount, 0);
+  const totalAll  = gifts.reduce((s, g) => s + g.amount, 0);
+  const p = pct(received + promised, totalAll);
 
-  document.getElementById('gift-total-amt').textContent  = fmt(received);
-  document.getElementById('gift-sub').textContent        = `${gifts.length} cadeaux · ${fmt(totalAll)} au total`;
+  document.getElementById('gift-total-amt').textContent  = fmt(received + promised);
+  document.getElementById('gift-sub').textContent        = `${fmt(received)} reçus · ${fmt(promised)} promesses · ${gifts.length} cadeaux`;
   document.getElementById('gift-bar').style.width        = p + '%';
   document.getElementById('g-received').textContent      = fmt(received);
-  document.getElementById('g-pending').textContent       = pending > 0 ? '-' + fmt(pending) : fmt(0);
+  document.getElementById('g-pending').textContent       = fmt(promised);
   document.getElementById('g-count').textContent         = gifts.length;
   document.getElementById('gift-list-count').textContent = gifts.length;
 
-  const labels = { paid: 'Reçu ✓', partial: 'Partiel', unpaid: 'Non reçu ⚠️' };
-  const badge  = { paid: 'badge-paid', partial: 'badge-partial', unpaid: 'badge-unpaid' };
-  const sorted = [...gifts].sort((a, b) => (a.status === 'paid' ? 0 : 1) - (b.status === 'paid' ? 0 : 1));
+  const labels = { paid: '✅ Reçu', promised: '🤝 Promesse', partial: 'Partiel', unpaid: 'Non reçu ⚠️' };
+  const badge  = { paid: 'badge-paid', promised: 'badge-promised', partial: 'badge-partial', unpaid: 'badge-unpaid' };
+  const statusOrder = { paid: 0, promised: 1, partial: 2, unpaid: 3 };
+  const sorted = [...gifts].sort((a, b) => (statusOrder[a.status]||2) - (statusOrder[b.status]||2));
 
   let html = sorted.map(g => `
     <div class="gift-card" onclick="openGiftEdit(${g.id})">
@@ -1579,15 +1582,24 @@ function renderGifts() {
         <div class="gift-note">${g.note}</div>
       </div>
       <div class="gift-right">
-        <div class="gift-amount" style="color:${g.status==='unpaid'?'var(--danger)':'var(--dark)'}">${g.status==='unpaid'?'-':''}${fmt(g.amount)}</div>
+        <div class="gift-amount" style="color:${g.status==='unpaid'?'var(--danger)':g.status==='promised'?'#3A4AAA':'var(--dark)'}">${g.status==='unpaid'?'-':''}${fmt(g.amount)}</div>
         <span class="status-badge ${badge[g.status]}">${labels[g.status]}</span>
       </div>
     </div>`).join('');
 
-  if (pending > 0) {
-    html += `<div style="background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:16px;padding:13px 16px;margin-top:4px;display:flex;align-items:center;justify-content:space-between;">
+  if (promised > 0) {
+    html += `<div style="background:#EEF0FB;border:1px solid rgba(58,74,170,0.2);border-radius:16px;padding:13px 16px;margin-top:8px;display:flex;align-items:center;justify-content:space-between;">
       <div>
-        <div style="font-size:9px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:0.1em">⚠️ Cadeaux non reçus</div>
+        <div style="font-size:9px;font-weight:700;color:#3A4AAA;text-transform:uppercase;letter-spacing:0.1em">🤝 Promesses sûres — non remises en main propre</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:3px">Engagements confirmés · comptabilisés dans le total</div>
+      </div>
+      <div style="font-size:18px;font-weight:800;color:#3A4AAA;letter-spacing:-0.02em">${fmt(promised)}</div>
+    </div>`;
+  }
+  if (pending > 0) {
+    html += `<div style="background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:16px;padding:13px 16px;margin-top:8px;display:flex;align-items:center;justify-content:space-between;">
+      <div>
+        <div style="font-size:9px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:0.1em">⚠️ Non confirmés</div>
         <div style="font-size:11px;color:var(--muted);margin-top:3px">À déduire du budget disponible</div>
       </div>
       <div style="font-size:18px;font-weight:800;color:var(--danger);letter-spacing:-0.02em">-${fmt(pending)}</div>
@@ -1613,9 +1625,10 @@ function openGiftEdit(id) {
     <div class="form-group">
       <label class="form-label">Statut</label>
       <select class="form-input" id="g-status">
-        <option value="paid"${g.status==='paid'?' selected':''}>Reçu ✓</option>
+        <option value="paid"${g.status==='paid'?' selected':''}>✅ Reçu en main propre</option>
+        <option value="promised"${g.status==='promised'?' selected':''}>🤝 Promesse sûre</option>
         <option value="partial"${g.status==='partial'?' selected':''}>Partiel</option>
-        <option value="unpaid"${g.status==='unpaid'?' selected':''}>En attente</option>
+        <option value="unpaid"${g.status==='unpaid'?' selected':''}>⚠️ Non confirmé</option>
       </select>
     </div>
     <div class="form-group">
