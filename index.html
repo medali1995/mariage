@@ -1016,7 +1016,7 @@ const DEFAULT_EXPENSES = [
   {id:23,name:'Décoration soirée jeune', cat:'Décoration', total:4000, paid:0, note:'Non payé'},
   {id:17,name:'Traiteur', cat:'Restauration', total:7800, paid:5000, note:'5000 DT payés par Slim — solde 2800 DT restant'},
   {id:6, name:'Bande musicale', cat:'Animation', total:750, paid:250, note:'500 DT restant'},
-  {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:0, note:'Non payé'},
+  {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:300, note:'Avance 300 DT payée — solde 600 DT restant'},
   {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:500, note:'Avance 500 DT payée — solde 3000 DT restant'},
   {id:21,name:'Coiffeur / Maquillage', cat:'Beauté', total:1000, paid:0, note:'Non payé'},
   {id:4, name:'Acte de mariage (عدل اشهاد)', cat:'Administratif', total:800, paid:400, note:'400 DT restant'},
@@ -1042,7 +1042,7 @@ const DEFAULT_GIFTS = [
 const RAHMA_EXPENSES = [
   {id:1, name:'Salle des fêtes', cat:'Salle', total:5300, paid:3500,
     note:'1500 DT payés + 2000 DT sera remboursé par Med Ali — solde 1800 DT restant'},
-  {id:2, name:'Robe Wtiya', cat:'Habillement', total:3000, paid:0, note:'Non encore payée'},
+  {id:2, name:'Robe Wtiya', cat:'Habillement', total:3000, paid:500, note:'Avance 500 DT payée — solde 2500 DT restant'},
   {id:3, name:'Hajema', cat:'Beauté', total:1000, paid:300, note:'Solde 700 DT restant'},
   {id:4, name:'Photographe', cat:'Cérémonie', total:2250, paid:2250,
     note:'Payé par le remboursement de Med Ali ✓'},
@@ -1121,7 +1121,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v16';
+const VER = 'v17';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
