@@ -857,7 +857,7 @@ body {
     <div class="hero-card voyage-hero">
       <div class="hero-eyebrow">Voyage de noces</div>
       <div class="hero-amount">14 750 DT</div>
-      <div class="hero-sub">Istanbul · Juillet 2025 · 15 jours</div>
+      <div class="hero-sub">Malaisie &amp; Thaïlande</div>
       <div class="progress-track"><div class="progress-bar" style="width:100%"></div></div>
       <div class="hero-stats">
         <div class="hero-stat">
@@ -990,8 +990,8 @@ const CAT_CLASSES = {
 const VOYAGE_TOTAL = 14750;
 
 const DEFAULT_EXPENSES = [
-  {id:1, name:'Frikha Concept (Déco cérémonie)', cat:'Mobilier', total:8050, paid:3975,
-    note:'3675 DT payés + 300 DT offerts par Syrine (2000 DT total Syrine : 1700 DT TV + 300 DT ici) ✓'},
+  {id:1, name:'Frikha Concept (Déco cérémonie)', cat:'Mobilier', total:8050, paid:4675,
+    note:'3675 DT + 300 DT Syrine + 700 DT cadeau Aymen affectés ici — solde 3375 DT restant'},
   {id:3, name:'Photographe', cat:'Cérémonie', total:1750, paid:600, note:'Solde 1150 DT restant'},
   {id:13,name:'Hlou', cat:'Cérémonie', total:1000, paid:1000, note:'Payé par Najwa comme cadeau ✓'},
   {id:5, name:'Palais Kobbet Ennhas', cat:'Salle', total:1400, paid:800, note:'800 DT payés — solde 600 DT restant'},
@@ -1013,8 +1013,8 @@ const DEFAULT_EXPENSES = [
   {id:25,name:"Console d'entrée", cat:'Mobilier', total:400, paid:400, note:"Console d'entrée (meuble d'entrée, pas PlayStation) — entièrement payé ✓"},
   {id:18,name:'OR pour mariage', cat:'Bijoux', total:7450, paid:7450, note:'Entièrement payé ✓'},
   {id:16,name:'Décor de maison (Menuiserie)', cat:'Mobilier', total:3500, paid:2200, note:'2200 DT prêts — 1300 DT restant'},
-  {id:23,name:'Décoration soirée jeune', cat:'Décoration', total:4000, paid:0, note:'Non payé'},
-  {id:17,name:'Traiteur', cat:'Restauration', total:7800, paid:5000, note:'5000 DT payés par Slim — solde 2800 DT restant'},
+  {id:23,name:'Décoration soirée jeune', cat:'Décoration', total:3000, paid:0, note:'Non payé'},
+  {id:17,name:'Traiteur', cat:'Restauration', total:7800, paid:7400, note:'5000 DT payés (Slim) + 2400 DT chèque (31 août) = 7400 DT · solde final 400 DT restant'},
   {id:6, name:'Bande musicale', cat:'Animation', total:750, paid:350, note:'350 DT payés — solde 400 DT restant'},
   {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:300, note:'Avance 300 DT payée — solde 600 DT restant'},
   {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:500, note:'Avance 500 DT payée — solde 3000 DT restant'},
@@ -1032,7 +1032,7 @@ const DEFAULT_GIFTS = [
   {id:4,person:'Syrine', amount:2000, status:'paid',   note:'2000 DT total : 1700 DT TV 65" + 300 DT Frikha Concept ✓'},
   {id:5,person:'Raslen', amount:430,  status:'paid',   note:'GAZ en nature ✓'},
   {id:6,person:'Oussema',amount:2800, status:'paid',   note:'Table salle à manger — payé 100% ✓'},
-  {id:7,person:'Aymen',  amount:700,  status:'unpaid', note:'Non reçu — à déduire du budget disponible ⚠️'},
+  {id:7,person:'Aymen',  amount:700,  status:'paid',   note:'700 DT reçus — affectés au paiement de Frikha Concept ✓'},
   {id:8,person:'Riadh',  amount:600,  status:'paid',   note:'Table basse — payé 100% ✓'},
 ];
 
@@ -1121,7 +1121,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v18';
+const VER = 'v20';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
