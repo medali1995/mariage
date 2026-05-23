@@ -994,7 +994,7 @@ const DEFAULT_EXPENSES = [
     note:'3675 DT payés + 300 DT offerts par Syrine (2000 DT total Syrine : 1700 DT TV + 300 DT ici) ✓'},
   {id:3, name:'Photographe', cat:'Cérémonie', total:1750, paid:600, note:'Solde 1150 DT restant'},
   {id:13,name:'Hlou', cat:'Cérémonie', total:1000, paid:1000, note:'Payé par Najwa comme cadeau ✓'},
-  {id:5, name:'Palais Kobbet Ennhas', cat:'Salle', total:1400, paid:700, note:'Solde 700 DT restant'},
+  {id:5, name:'Palais Kobbet Ennhas', cat:'Salle', total:1400, paid:800, note:'800 DT payés — solde 600 DT restant'},
   {id:22,name:'Meuble Buffet', cat:'Mobilier', total:1700, paid:1700, note:'Entièrement payé ✓'},
   {id:2, name:'Meuble Dressing', cat:'Mobilier', total:5000, paid:5000,
     note:'3250 DT de notre poche + 1750 DT cadeau Amal — Entièrement payé ✓'},
@@ -1015,11 +1015,11 @@ const DEFAULT_EXPENSES = [
   {id:16,name:'Décor de maison (Menuiserie)', cat:'Mobilier', total:3500, paid:2200, note:'2200 DT prêts — 1300 DT restant'},
   {id:23,name:'Décoration soirée jeune', cat:'Décoration', total:4000, paid:0, note:'Non payé'},
   {id:17,name:'Traiteur', cat:'Restauration', total:7800, paid:5000, note:'5000 DT payés par Slim — solde 2800 DT restant'},
-  {id:6, name:'Bande musicale', cat:'Animation', total:750, paid:250, note:'500 DT restant'},
+  {id:6, name:'Bande musicale', cat:'Animation', total:750, paid:350, note:'350 DT payés — solde 400 DT restant'},
   {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:300, note:'Avance 300 DT payée — solde 600 DT restant'},
   {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:500, note:'Avance 500 DT payée — solde 3000 DT restant'},
   {id:21,name:'Coiffeur / Maquillage', cat:'Beauté', total:1000, paid:0, note:'Non payé'},
-  {id:4, name:'Acte de mariage (عدل اشهاد)', cat:'Administratif', total:800, paid:400, note:'400 DT restant'},
+  {id:4, name:'Acte de mariage (عدل اشهاد)', cat:'Administratif', total:800, paid:500, note:'500 DT payés — solde 300 DT restant'},
   // --- Voyage de noces (inclus dans budget global) ---
   {id:100,name:'Voyage de noces — Istanbul ✈️', cat:'Voyage', total:14750, paid:14750,
     note:'Entièrement payé ✓ — Billets 4250 DT + Hôtel 2500 DT + Sur place 8000 DT · Juillet 2025 · 15 jours'},
@@ -1121,7 +1121,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v17';
+const VER = 'v18';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
