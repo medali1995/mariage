@@ -709,6 +709,86 @@ body {
 .stats-legend-label { font-size:11px; color:var(--dark); font-weight:500; }
 .stats-legend-val { font-size:11px; font-weight:700; color:var(--dark); margin-left:auto; }
 
+/* ========== PAIEMENTS URGENTS ========== */
+.urgent-section {
+  background: linear-gradient(135deg, #1A0A0A, #2D1010);
+  border: 1px solid rgba(200,60,60,0.3);
+  border-radius: 20px; padding: 16px; margin-bottom: 14px;
+}
+.urgent-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;
+}
+.urgent-title-wrap { display: flex; align-items: center; gap: 8px; }
+.urgent-dot { width: 8px; height: 8px; border-radius: 50%; background: #E24B4A; box-shadow: 0 0 6px rgba(226,75,74,0.6); animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+.urgent-title { font-size: 11px; font-weight: 700; color: #F5A0A0; text-transform: uppercase; letter-spacing: 0.1em; }
+.urgent-badge { font-size: 10px; font-weight: 700; background: rgba(226,75,74,0.2); color: #F5A0A0; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(226,75,74,0.3); }
+.urgent-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px; border-radius: 12px; margin-bottom: 7px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+}
+.urgent-item:last-child { margin-bottom: 0; }
+.urgent-item-left { display: flex; align-items: center; gap: 10px; }
+.urgent-item-icon { font-size: 18px; }
+.urgent-item-name { font-size: 12px; font-weight: 600; color: #F5F0E8; }
+.urgent-item-sub  { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 1px; }
+.urgent-item-amt  { font-size: 14px; font-weight: 800; color: #F5A0A0; letter-spacing: -0.02em; }
+.urgent-total-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.urgent-total-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; }
+.urgent-total-val { font-size: 18px; font-weight: 800; color: #F5A0A0; letter-spacing: -0.02em; font-family:'Cormorant Garamond',serif; }
+.urgent-restant-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 8px; padding: 10px 12px; border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+}
+.urgent-restant-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; font-weight:600; }
+.urgent-restant-val { font-size: 14px; font-weight: 800; color: #F09090; }
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== PAIEMENTS URGENTS ========== */
+.urgent-section {
+  background: linear-gradient(135deg, #1A0A0A, #2D1010);
+  border: 1px solid rgba(200,60,60,0.3);
+  border-radius: 20px; padding: 16px; margin-bottom: 14px;
+}
+.urgent-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;
+}
+.urgent-title-wrap { display: flex; align-items: center; gap: 8px; }
+.urgent-dot { width: 8px; height: 8px; border-radius: 50%; background: #E24B4A; box-shadow: 0 0 6px rgba(226,75,74,0.6); animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.4} }
+.urgent-title { font-size: 11px; font-weight: 700; color: #F5A0A0; text-transform: uppercase; letter-spacing: 0.1em; }
+.urgent-badge { font-size: 10px; font-weight: 700; background: rgba(226,75,74,0.2); color: #F5A0A0; padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(226,75,74,0.3); }
+.urgent-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px; border-radius: 12px; margin-bottom: 7px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+}
+.urgent-item:last-child { margin-bottom: 0; }
+.urgent-item-left { display: flex; align-items: center; gap: 10px; }
+.urgent-item-icon { font-size: 18px; }
+.urgent-item-name { font-size: 12px; font-weight: 600; color: #F5F0E8; }
+.urgent-item-sub  { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 1px; }
+.urgent-item-amt  { font-size: 14px; font-weight: 800; color: #F5A0A0; letter-spacing: -0.02em; }
+.urgent-total-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.urgent-total-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; }
+.urgent-total-val { font-size: 18px; font-weight: 800; color: #F5A0A0; letter-spacing: -0.02em; font-family:'Cormorant Garamond',serif; }
+.urgent-restant-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 8px; padding: 10px 12px; border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+}
+.urgent-restant-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; font-weight:600; }
+.urgent-restant-val { font-size: 14px; font-weight: 800; color: #F09090; }
+
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== */
 @media (max-width: 380px) {
   .hero-amount { font-size: 34px; }
@@ -808,6 +888,9 @@ body {
     </div>
 
     <!-- STAT SUMMARY ROW -->
+    <!-- Paiements urgents Juin (Mohamed uniquement) -->
+    <div id="urgent-block"></div>
+
     <div class="quick-stats" id="quick-stats"></div>
 
     <!-- STATUS FILTER BUTTONS -->
@@ -1043,7 +1126,7 @@ const DEFAULT_GIFTS = [
 const RAHMA_EXPENSES = [
   {id:1, name:'Salle des fêtes', cat:'Salle', total:5300, paid:3500,
     note:'1500 DT payés + 2000 DT sera remboursé par Med Ali — solde 1800 DT restant'},
-  {id:2, name:'Robe Wtiya', cat:'Habillement', total:3000, paid:500, note:'Avance 500 DT payée — solde 2500 DT restant'},
+  {id:2, name:'Robe Wtiya', cat:'Habillement', total:3000, paid:2000, note:'500 DT payés + 1000 DT Wassila (promesse) + 500 DT Hedi (promesse) = 2000 DT · solde 1000 DT restant'},
   {id:3, name:'Hajema', cat:'Beauté', total:1000, paid:300, note:'Solde 700 DT restant'},
   {id:4, name:'Photographe', cat:'Cérémonie', total:2250, paid:2250,
     note:'Payé par le remboursement de Med Ali ✓'},
@@ -1059,32 +1142,34 @@ const RAHMA_EXPENSES = [
 ];
 
 const RAHMA_GIFTS = [
-  {id:1, person:'Zina',     amount:2000, status:'paid',   note:'Reçu ✓'},
-  {id:2, person:'Jihene',   amount:600,  status:'paid',   note:'Reçu ✓'},
-  {id:3, person:'Mohamed',  amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:4, person:'Rami',     amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:5, person:'Borhene',  amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:6, person:'Hedi',     amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:7, person:'Sofiene',  amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:8, person:'Refka',    amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:9, person:'Oumayma',  amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:10,person:'Saif',     amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:11,person:'Salem',    amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:12,person:'Hssan',    amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:13,person:'Saida',    amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:14,person:'Salha',    amount:0,    status:'unpaid', note:'Pas encore reçu'},
-  {id:15,person:'Ajmi',     amount:0,    status:'unpaid', note:'Pas encore reçu'},
+  {id:1, person:'Zina',    amount:1000, status:'promised', note:'🤝 Promesse sûre — non encore remis en main propre'},
+  {id:2, person:'Jihene',  amount:600,  status:'promised', note:'🤝 Promesse sûre — non encore remis en main propre'},
+  {id:3, person:'Wassila', amount:1000, status:'promised', note:'🤝 Promesse sûre — affectée au paiement Robe Wtiya'},
+  {id:4, person:'Hedi',    amount:500,  status:'promised', note:'🤝 Promesse sûre — affectée au paiement Robe Wtiya'},
+  {id:5, person:'Eya',     amount:300,  status:'paid',     note:'✅ Reçu en main propre — Défroisseur'},
+  {id:6, person:'Mohamed', amount:1000, status:'unpaid',   note:'Estimation ~ 1000 DT — non encore confirmé'},
+  {id:7, person:'Rami',    amount:250,  status:'unpaid',   note:'Estimation ~ 250 DT — non encore confirmé'},
+  {id:8, person:'Borhene', amount:250,  status:'unpaid',   note:'Estimation ~ 250 DT — non encore confirmé'},
+  {id:9, person:'Sofiene', amount:200,  status:'unpaid',   note:'Estimation ~ 200 DT — non encore confirmé'},
+  {id:10,person:'Refka',   amount:150,  status:'unpaid',   note:'Estimation ~ 150 DT — non encore confirmé'},
+  {id:11,person:'Oumayma', amount:200,  status:'unpaid',   note:'Estimation ~ 200 DT — non encore confirmé'},
+  {id:12,person:'Saif',    amount:150,  status:'unpaid',   note:'Estimation ~ 150 DT — non encore confirmé'},
+  {id:13,person:'Salem',   amount:100,  status:'unpaid',   note:'Estimation ~ 100 DT — non encore confirmé'},
+  {id:14,person:'Hssan',   amount:100,  status:'unpaid',   note:'Estimation ~ 100 DT — non encore confirmé'},
+  {id:15,person:'Saida',   amount:100,  status:'unpaid',   note:'Estimation ~ 100 DT — non encore confirmé'},
+  {id:16,person:'Salha',   amount:100,  status:'unpaid',   note:'Estimation ~ 100 DT — non encore confirmé'},
+  {id:17,person:'Ajmi',    amount:100,  status:'unpaid',   note:'Estimation ~ 100 DT — non encore confirmé'},
 ];
 
 const RAHMA_ZHEZ_DEFAULT = [
-  {id:1, name:"Service à table",              prix:700,  note:'Par Wassila',      paid:false},
+  {id:1, name:"Service à table",              prix:700,  note:'Par Wassila',      paid:true},
   {id:2, name:'Ménager',                      prix:300,  note:'Par Wassila',      paid:true},
   {id:3, name:'Égoutoir',                     prix:100,  note:'Par Wassila',      paid:false},
   {id:4, name:'Boîtes de rangements (réfrigérateur)', prix:75, note:'Par Wassila', paid:false},
   {id:5, name:'Des couteaux',                 prix:90,   note:'Par Wassila',      paid:false},
   {id:6, name:'Tapis de cuisine',             prix:80,   note:'Par Wassila',      paid:false},
   {id:7, name:'Deux tapis salle de bain',     prix:260,  note:'Par Wassila',      paid:false},
-  {id:8, name:'Défroisseur',                  prix:300,  note:'Par Eya',          paid:false},
+  {id:8, name:'Défroisseur',                  prix:300,  note:'Par Eya',          paid:true},
 ];
 let RAHMA_ZHEZ = [];
 function loadZhez() {
@@ -1122,7 +1207,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v21';
+const VER = 'v28';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
@@ -1194,7 +1279,7 @@ function showPage(name, btn) {
   document.getElementById('page-' + name).classList.add('active');
   if (btn) btn.classList.add('active');
   document.getElementById('main-fab').style.display = name === 'depenses' ? 'flex' : 'none';
-  if (name === 'stats') renderStats('self');
+  if (name === 'stats') renderStats(statsView || 'self');
   closeModal();
 }
 
@@ -1207,6 +1292,10 @@ function renderAll() {
   if (currentUser === 'Rahma') renderZhez();
   else renderDressing();
   updateTabsForUser();
+  // Auto-refresh stats if stats page is active
+  if (document.getElementById('page-stats').classList.contains('active')) {
+    renderStats(statsView);
+  }
 }
 
 function updateTabsForUser() {
@@ -1251,6 +1340,9 @@ function renderDepenses() {
   document.getElementById('h-paid').textContent     = fmt(paid);
   document.getElementById('h-rest').textContent     = fmt(rest);
   document.getElementById('h-pct').textContent      = p + '%';
+
+  // Urgent block
+  renderUrgentBlock(rest);
 
   const cats      = [...new Set(expenses.map(e => e.cat))];
   const unpaidEx  = expenses.filter(e => getStatus(e) !== 'paid');
@@ -1552,6 +1644,113 @@ function closeChart() {
 }
 
 // ============================================================
+//  PAIEMENTS URGENTS JUIN
+// ============================================================
+const URGENT_JUIN = [
+  { icon: '🌸', name: 'Décoration soirée jeune', sub: 'Acompte juin obligatoire', amount: 1500, match: 'décoration soirée', expId: 23, prevPaid: 0 },
+  { icon: '👗', name: 'Robe de mariage',         sub: 'Acompte juin obligatoire', amount: 1000, match: 'robe de mariage',   expId: 20, prevPaid: 500 },
+  { icon: '🛋️', name: 'Frikha Concept',          sub: 'Acompte juin obligatoire', amount: 1000, match: 'frikha',           expId: 1,  prevPaid: 4675 },
+];
+
+function confirmUrgentPay(idx) {
+  const u = URGENT_JUIN[idx];
+  const exp = expenses.find(e => e.id === u.expId);
+  if (!exp) { toast('⚠️ Dépense introuvable'); return; }
+
+  // Show confirmation modal
+  document.getElementById('modal-title').textContent = '⚠️ Confirmer le paiement';
+  document.getElementById('modal-body').innerHTML = `
+    <div style="text-align:center;padding:8px 0 16px">
+      <div style="font-size:40px;margin-bottom:12px">${u.icon}</div>
+      <div style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:6px">${u.name}</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:20px">Acompte obligatoire — Juin 2026</div>
+      <div style="background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:16px;padding:16px;margin-bottom:16px">
+        <div style="font-size:10px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Montant à payer</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--danger)">${u.amount.toLocaleString('fr-FR')} DT</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.03);border-radius:12px;padding:12px;font-size:12px;color:var(--muted)">
+        Payé actuellement : <strong style="color:var(--dark)">${fmt(exp.paid)}</strong><br>
+        Après paiement : <strong style="color:var(--success)">${fmt(exp.paid + u.amount)}</strong> / ${fmt(exp.total)}
+      </div>
+    </div>
+  `;
+  document.getElementById('modal-actions').innerHTML = `
+    <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+    <button class="btn-save" style="background:linear-gradient(135deg,#8C3030,#C04040)" onclick="applyUrgentPay(${idx})">✓ Confirmer le paiement</button>
+  `;
+  openModal();
+}
+
+function applyUrgentPay(idx) {
+  const u = URGENT_JUIN[idx];
+  const expIdx = expenses.findIndex(e => e.id === u.expId);
+  if (expIdx < 0) { toast('⚠️ Erreur'); closeModal(); return; }
+  expenses[expIdx].paid = Math.min(expenses[expIdx].paid + u.amount, expenses[expIdx].total);
+  expenses[expIdx].note = expenses[expIdx].note + ' · +' + u.amount.toLocaleString('fr-FR') + ' DT payés (acompte juin)';
+  saveExpenses();
+  closeModal();
+  renderAll();
+  toast('✓ ' + u.amount.toLocaleString('fr-FR') + ' DT ajoutés à ' + u.name);
+}
+
+function renderUrgentBlock(totalRest) {
+  const el = document.getElementById('urgent-block');
+  if (!el) return;
+
+  // Only show for Mohamed
+  if (currentUser !== 'Mohamed') { el.innerHTML = ''; return; }
+
+  const urgentTotal = URGENT_JUIN.reduce((s, u) => s + u.amount, 0);
+  const restAfter   = totalRest - urgentTotal;
+
+  el.innerHTML = `
+    <div class="urgent-section">
+      <div class="urgent-header">
+        <div class="urgent-title-wrap">
+          <div class="urgent-dot"></div>
+          <div class="urgent-title">📅 Paiements obligatoires — Juin</div>
+        </div>
+        <span class="urgent-badge">${URGENT_JUIN.length} postes</span>
+      </div>
+
+      ${URGENT_JUIN.map((u,i) => {
+        // Find matching expense to check if already paid this amount
+        const exp = expenses.find(e => e.name.toLowerCase().includes(u.match));
+        const alreadyPaidThis = exp && exp.paid >= (u.prevPaid + u.amount);
+        return `
+        <div class="urgent-item">
+          <div class="urgent-item-left">
+            <div class="urgent-item-icon">${u.icon}</div>
+            <div>
+              <div class="urgent-item-name">${u.name}</div>
+              <div class="urgent-item-sub">${alreadyPaidThis ? '✓ Acompte juin payé' : u.sub}</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div class="urgent-item-amt" style="color:${alreadyPaidThis?'#7DD3A0':'#F5A0A0'}">${u.amount.toLocaleString('fr-FR')} DT</div>
+            ${alreadyPaidThis
+              ? `<span style="font-size:10px;font-weight:700;background:rgba(74,124,89,0.2);color:#7DD3A0;padding:4px 8px;border-radius:8px;border:1px solid rgba(74,124,89,0.3)">✓ Payé</span>`
+              : `<button onclick="confirmUrgentPay(${i})" style="font-size:11px;font-weight:700;background:rgba(226,75,74,0.15);color:#F5A0A0;padding:5px 10px;border-radius:8px;border:1px solid rgba(226,75,74,0.3);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.15s" onmouseover="this.style.background='rgba(226,75,74,0.3)'" onmouseout="this.style.background='rgba(226,75,74,0.15)'">+ Payer</button>`
+            }
+          </div>
+        </div>
+        `;
+      }).join('')}
+
+      <div class="urgent-total-row">
+        <div class="urgent-total-label">Total à payer en juin</div>
+        <div class="urgent-total-val">${urgentTotal.toLocaleString('fr-FR')} DT</div>
+      </div>
+
+      <div class="urgent-restant-row">
+        <div class="urgent-restant-label">💰 Restant après juin</div>
+        <div class="urgent-restant-val" style="color:${restAfter <= 0 ? '#7DD3A0' : '#F09090'}">${restAfter.toLocaleString('fr-FR')} DT</div>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================
 //  CADEAUX
 // ============================================================
 function renderGifts() {
@@ -1779,19 +1978,17 @@ function renderStats(view) {
   statsView = view;
   const page = document.getElementById('page-stats');
 
-  // Mohamed data (always from DEFAULT_EXPENSES)
-  const mExp = (() => {
+  // Always use live in-memory data (same source as renderDepenses)
+  const mExp  = currentUser === 'Mohamed' ? expenses : (() => {
     try { const d = localStorage.getItem('mwr_exp'); return d ? JSON.parse(d) : JSON.parse(JSON.stringify(DEFAULT_EXPENSES)); } catch(e) { return JSON.parse(JSON.stringify(DEFAULT_EXPENSES)); }
   })();
-  const mGift = (() => {
+  const mGift = currentUser === 'Mohamed' ? gifts : (() => {
     try { const d = localStorage.getItem('mwr_gft'); return d ? JSON.parse(d) : JSON.parse(JSON.stringify(DEFAULT_GIFTS)); } catch(e) { return JSON.parse(JSON.stringify(DEFAULT_GIFTS)); }
   })();
-
-  // Rahma data
-  const rExp = (() => {
+  const rExp  = currentUser === 'Rahma' ? expenses : (() => {
     try { const d = localStorage.getItem('mwr_exp_r'); return d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_EXPENSES)); } catch(e) { return JSON.parse(JSON.stringify(RAHMA_EXPENSES)); }
   })();
-  const rGift = (() => {
+  const rGift = currentUser === 'Rahma' ? gifts : (() => {
     try { const d = localStorage.getItem('mwr_gft_r'); return d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_GIFTS)); } catch(e) { return JSON.parse(JSON.stringify(RAHMA_GIFTS)); }
   })();
 
@@ -1799,15 +1996,13 @@ function renderStats(view) {
   const mTotal = mExp.reduce((s,e)=>s+e.total,0);
   const mPaid  = mExp.reduce((s,e)=>s+e.paid,0);
   const mRest  = mTotal - mPaid;
-  const mGiftTotal = mGift.filter(g=>g.status==='paid').reduce((s,g)=>s+g.amount,0);
+  const mGiftTotal = mGift.filter(g=>g.status==='paid'||g.status==='promised').reduce((s,g)=>s+g.amount,0);
   const mPct   = pct(mPaid, mTotal);
 
-  const zhezTotal = RAHMA_ZHEZ.reduce((s,z)=>s+z.prix,0);
-  const zhezPaid  = RAHMA_ZHEZ.filter(z=>z.paid).reduce((s,z)=>s+z.prix,0);
-  const rTotal = rExp.reduce((s,e)=>s+e.total,0) + zhezTotal;
-  const rPaid  = rExp.reduce((s,e)=>s+e.paid,0)  + zhezPaid;
+  const rTotal = rExp.reduce((s,e)=>s+e.total,0);
+  const rPaid  = rExp.reduce((s,e)=>s+e.paid,0);
   const rRest  = rTotal - rPaid;
-  const rGiftTotal = rGift.filter(g=>g.status==='paid').reduce((s,g)=>s+g.amount,0);
+  const rGiftTotal = rGift.filter(g=>g.status==='paid'||g.status==='promised').reduce((s,g)=>s+g.amount,0);
   const rPct   = pct(rPaid, rTotal);
 
   const combTotal = mTotal + rTotal;
