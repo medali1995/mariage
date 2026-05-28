@@ -1100,10 +1100,10 @@ const DEFAULT_EXPENSES = [
   {id:23,name:'Décoration soirée jeune', cat:'Décoration', total:3000, paid:0, note:'Non payé'},
   {id:17,name:'Traiteur', cat:'Restauration', total:7800, paid:7400, note:'5000 DT payés (Slim) + 2400 DT chèque (31 août) = 7400 DT · solde final 400 DT restant'},
   {id:6, name:'Bande musicale', cat:'Animation', total:750, paid:350, note:'350 DT payés — solde 400 DT restant'},
-  {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:300, note:'Avance 300 DT payée — solde 600 DT restant'},
+  {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:400, note:'400 DT payés — solde 500 DT restant'},
   {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:500, note:'Avance 500 DT payée — solde 3000 DT restant'},
   {id:21,name:'Coiffeur / Maquillage', cat:'Beauté', total:1000, paid:0, note:'Non payé'},
-  {id:4, name:'Acte de mariage (عدل اشهاد)', cat:'Administratif', total:800, paid:500, note:'500 DT payés — solde 300 DT restant'},
+  {id:4, name:'Acte de mariage (عدل اشهاد)', cat:'Administratif', total:800, paid:600, note:'600 DT payés — solde 200 DT restant'},
   // --- Voyage de noces (inclus dans budget global) ---
   {id:100,name:'Voyage de noces — Malaisie & Thaïlande ✈️', cat:'Voyage', total:14750, paid:14750,
     note:'Entièrement payé ✓ — Billets 4250 DT + Hôtel 2500 DT + Sur place 8000 DT · Malaisie & Thaïlande'},
@@ -1207,7 +1207,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v28';
+const VER = 'v29';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
