@@ -1207,7 +1207,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v29';
+const VER = 'v30';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
@@ -2075,8 +2075,6 @@ function renderStatsSingle(name, total, paid, rest, giftTotal, p, color, light, 
     return {cat,cT,cP,cPct,icon};
   }).sort((a,b)=>b.cT-a.cT);
 
-  const netBalance = giftTotal - rest;
-
   return `
     <div class="stats-big-card" style="background:${bgGrad};border:1px solid ${borderCol}">
       <div style="font-size:9px;color:${light};letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px">Bilan — ${name}</div>
@@ -2093,8 +2091,8 @@ function renderStatsSingle(name, total, paid, rest, giftTotal, p, color, light, 
     </div>
 
     <div class="stats-row">
-      <div class="stats-mini"><div class="stats-mini-icon">🎁</div><div class="stats-mini-label">Cadeaux reçus</div><div class="stats-mini-val" style="color:var(--success)">${fmt(giftTotal)}</div></div>
-      <div class="stats-mini"><div class="stats-mini-icon">${netBalance>=0?'📈':'📉'}</div><div class="stats-mini-label">Solde net</div><div class="stats-mini-val" style="color:${netBalance>=0?'var(--success)':'var(--danger)'}">${netBalance>=0?'+':''}${fmt(netBalance)}</div></div>
+      <div class="stats-mini"><div class="stats-mini-icon">✅</div><div class="stats-mini-label">Postes réglés</div><div class="stats-mini-val" style="color:var(--success)">${expList.filter(e=>e.paid>=e.total).length} / ${expList.length}</div></div>
+      <div class="stats-mini"><div class="stats-mini-icon">⏳</div><div class="stats-mini-label">Reste à payer</div><div class="stats-mini-val" style="color:var(--danger)">${fmt(rest)}</div></div>
     </div>
 
     <div class="stats-section-title">Répartition par catégorie</div>
@@ -2115,7 +2113,6 @@ function renderStatsSingle(name, total, paid, rest, giftTotal, p, color, light, 
 }
 
 function renderStatsBoth(mTotal,mPaid,mRest,mGift,mPct,rTotal,rPaid,rRest,rGift,rPct,cTotal,cPaid,cRest,cGift,cPct) {
-  const netComb = cGift - cRest;
   return `
     <!-- COMBINED HERO -->
     <div class="stats-big-card" style="background:linear-gradient(145deg,#1A1208,#2A1E10);border:1px solid rgba(201,168,76,0.22)">
@@ -2134,8 +2131,8 @@ function renderStatsBoth(mTotal,mPaid,mRest,mGift,mPct,rTotal,rPaid,rRest,rGift,
 
     <!-- GIFTS COMBINED -->
     <div class="stats-row">
-      <div class="stats-mini"><div class="stats-mini-icon">🎁</div><div class="stats-mini-label">Cadeaux total</div><div class="stats-mini-val" style="color:var(--success)">${fmt(cGift)}</div></div>
-      <div class="stats-mini"><div class="stats-mini-icon">${netComb>=0?'📈':'📉'}</div><div class="stats-mini-label">Solde net</div><div class="stats-mini-val" style="color:${netComb>=0?'var(--success)':'var(--danger)'}">${netComb>=0?'+':''}${fmt(netComb)}</div></div>
+      <div class="stats-mini"><div class="stats-mini-icon">✅</div><div class="stats-mini-label">Total payé</div><div class="stats-mini-val" style="color:var(--success)">${fmt(cPaid)}</div></div>
+      <div class="stats-mini"><div class="stats-mini-icon">⏳</div><div class="stats-mini-label">Reste à payer</div><div class="stats-mini-val" style="color:var(--danger)">${fmt(cRest)}</div></div>
     </div>
 
     <!-- COMPARISON -->
@@ -2184,18 +2181,18 @@ function renderStatsBoth(mTotal,mPaid,mRest,mGift,mPct,rTotal,rPaid,rRest,rGift,
       <div class="stats-bar-track"><div class="stats-bar-fill" style="width:${pct(rRest,cRest||1)}%;background:#8B2A4A"></div></div>
     </div>
 
-    <!-- CADEAUX COMPARISON -->
-    <div class="stats-section-title">Cadeaux reçus</div>
+    <!-- POSTES REGLÉS COMPARISON -->
+    <div class="stats-section-title">Postes entièrement réglés</div>
     <div class="stats-compare-row">
       <div class="stats-compare-card" style="background:rgba(61,122,82,0.06);border-color:rgba(61,122,82,0.2)">
         <div class="stats-compare-name" style="color:var(--success)">💙 Mohamed</div>
-        <div class="stats-compare-val" style="color:var(--success)">${fmt(mGift)}</div>
-        <div class="stats-compare-sub">Total reçu</div>
+        <div class="stats-compare-val" style="color:var(--success)">${fmt(mPaid)}</div>
+        <div class="stats-compare-sub">Total payé</div>
       </div>
       <div class="stats-compare-card" style="background:rgba(61,122,82,0.06);border-color:rgba(61,122,82,0.2)">
         <div class="stats-compare-name" style="color:var(--success)">💗 Rahma</div>
-        <div class="stats-compare-val" style="color:var(--success)">${fmt(rGift)}</div>
-        <div class="stats-compare-sub">Total reçu</div>
+        <div class="stats-compare-val" style="color:var(--success)">${fmt(rPaid)}</div>
+        <div class="stats-compare-sub">Total payé</div>
       </div>
     </div>
   `;
