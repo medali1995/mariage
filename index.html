@@ -1078,7 +1078,7 @@ const DEFAULT_EXPENSES = [
     note:'3675 DT + 300 DT Syrine + 700 DT cadeau Aymen affectés ici — solde 3375 DT restant'},
   {id:3, name:'Photographe', cat:'Cérémonie', total:1750, paid:600, note:'Solde 1150 DT restant'},
   {id:13,name:'Hlou', cat:'Cérémonie', total:1000, paid:1000, note:'Payé par Najwa comme cadeau ✓'},
-  {id:5, name:'Palais Kobbet Ennhas', cat:'Salle', total:1400, paid:800, note:'800 DT payés — solde 600 DT restant'},
+  {id:5, name:'Palais Kobbet Ennhas', cat:'Salle', total:1400, paid:850, note:'850 DT payés — solde 550 DT restant'},
   {id:22,name:'Meuble Buffet', cat:'Mobilier', total:1700, paid:1700, note:'Entièrement payé ✓'},
   {id:2, name:'Meuble Dressing', cat:'Mobilier', total:5000, paid:5000,
     note:'3250 DT de notre poche + 1750 DT cadeau Amal — Entièrement payé ✓'},
@@ -1086,7 +1086,7 @@ const DEFAULT_EXPENSES = [
   {id:12,name:'Meuble TV', cat:'Mobilier', total:250, paid:250, note:'Payé avec le reste du cadeau Amal (2000 DT : 1750 DT dressing + 250 DT TV) ✓'},
   {id:14,name:'Table salon', cat:'Mobilier', total:220, paid:220, note:'Payée ✓'},
   {id:15,name:'Matelas Confortex', cat:'Mobilier', total:900, paid:900, note:'Payé ✓'},
-  {id:19,name:'Meuble Séjour', cat:'Mobilier', total:3800, paid:550, note:'Avance 550 DT — solde 3250 DT restant'},
+  {id:19,name:'Meuble Séjour', cat:'Mobilier', total:3800, paid:2050, note:'550 DT avance + 1500 DT Youssef Bouhamed (01 sept.) = 2050 DT payés — solde 1750 DT restant'},
   {id:26,name:'Table salle à manger', cat:'Mobilier', total:2800, paid:2800, note:'Payé 100% par Oussema — cadeau ✓'},
   {id:27,name:'Table basse', cat:'Mobilier', total:600, paid:600, note:'Cadeau de Riadh — payé 100% ✓'},
   {id:7, name:'Four', cat:'Électroménager', total:780, paid:780, note:'Entièrement payé ✓'},
@@ -1097,11 +1097,13 @@ const DEFAULT_EXPENSES = [
   {id:25,name:"Console d'entrée", cat:'Mobilier', total:400, paid:400, note:"Console d'entrée (meuble d'entrée, pas PlayStation) — entièrement payé ✓"},
   {id:18,name:'OR pour mariage', cat:'Bijoux', total:7450, paid:7450, note:'Entièrement payé ✓'},
   {id:16,name:'Décor de maison (Menuiserie)', cat:'Mobilier', total:3500, paid:2200, note:'2200 DT prêts — 1300 DT restant'},
-  {id:23,name:'Décoration soirée jeune', cat:'Décoration', total:3000, paid:0, note:'Non payé'},
-  {id:17,name:'Traiteur', cat:'Restauration', total:7800, paid:7400, note:'5000 DT payés (Slim) + 2400 DT chèque (31 août) = 7400 DT · solde final 400 DT restant'},
-  {id:6, name:'Bande musicale', cat:'Animation', total:750, paid:350, note:'350 DT payés — solde 400 DT restant'},
-  {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:400, note:'400 DT payés — solde 500 DT restant'},
-  {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:500, note:'Avance 500 DT payée — solde 3000 DT restant'},
+  {id:29,name:'Traiteur + Décoration soirée', cat:'Restauration', total:10000, paid:8400,
+    note:'Slim : 5000 DT ✓ · Mohamed Ali : 1000 DT avance + 2400 DT chèque (31 août) = 8400 DT payés — solde 1600 DT restant'},
+  
+  
+  {id:6, name:'Bande musicale', cat:'Animation', total:750, paid:400, note:'400 DT payés — solde 350 DT restant'},
+  {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:500, note:'500 DT payés — solde 400 DT restant'},
+  {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:950, note:'950 DT payés — solde 2550 DT restant'},
   {id:21,name:'Coiffeur / Maquillage', cat:'Beauté', total:1000, paid:0, note:'Non payé'},
   {id:4, name:'Acte de mariage (عدل اشهاد)', cat:'Administratif', total:800, paid:800, note:'Entièrement payé ✓'},
   // --- Voyage de noces (inclus dans budget global) ---
@@ -1138,7 +1140,6 @@ const RAHMA_EXPENSES = [
   {id:8, name:'Hlou + Salé (soirée)', cat:'Cérémonie', total:1000, paid:0, note:'Non encore payé'},
   {id:9, name:'Robe Hamem', cat:'Habillement', total:300, paid:0, note:'Non encore payée'},
   {id:10,name:'Robe Soirée Mohamed', cat:'Habillement', total:300, paid:0, note:'Non encore payée'},
-  {id:11,name:'Maison loyer pour soirée', cat:'Salle', total:1500, paid:0, note:'Non encore payé'},
 ];
 
 const RAHMA_GIFTS = [
@@ -1207,7 +1208,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v31';
+const VER = 'v37';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
@@ -1647,17 +1648,18 @@ function closeChart() {
 //  PAIEMENTS URGENTS JUIN
 // ============================================================
 const URGENT_JUIN = [
-  { icon: '🌸', name: 'Décoration soirée jeune', sub: 'Acompte juin obligatoire', amount: 1500, match: 'décoration soirée', expId: 23, prevPaid: 0 },
-  { icon: '👗', name: 'Robe de mariage',         sub: 'Acompte juin obligatoire', amount: 1000, match: 'robe de mariage',   expId: 20, prevPaid: 500 },
-  { icon: '🛋️', name: 'Frikha Concept',          sub: 'Acompte juin obligatoire', amount: 1000, match: 'frikha',           expId: 1,  prevPaid: 4675 },
+  { icon: '👗', name: 'Robe de mariage', sub: 'Acompte juin obligatoire', amount: 1000, match: 'robe de mariage', expId: 20, prevPaid: 500 },
+  { icon: '🛋️', name: 'Frikha Concept', sub: 'Acompte juin obligatoire', amount: 1000, match: 'frikha',          expId: 1,  prevPaid: 4675 },
 ];
 
 function confirmUrgentPay(idx) {
   const u = URGENT_JUIN[idx];
   const exp = expenses.find(e => e.id === u.expId);
   if (!exp) { toast('⚠️ Dépense introuvable'); return; }
+  const paidToward = Math.max(0, exp.paid - u.prevPaid);
+  const remaining  = Math.max(0, u.amount - paidToward);
+  if (remaining === 0) { toast('✓ Déjà payé !'); return; }
 
-  // Show confirmation modal
   document.getElementById('modal-title').textContent = '⚠️ Confirmer le paiement';
   document.getElementById('modal-body').innerHTML = `
     <div style="text-align:center;padding:8px 0 16px">
@@ -1665,32 +1667,33 @@ function confirmUrgentPay(idx) {
       <div style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:6px">${u.name}</div>
       <div style="font-size:12px;color:var(--muted);margin-bottom:20px">Acompte obligatoire — Juin 2026</div>
       <div style="background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:16px;padding:16px;margin-bottom:16px">
-        <div style="font-size:10px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Montant à payer</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--danger)">${u.amount.toLocaleString('fr-FR')} DT</div>
+        <div style="font-size:10px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Reste à payer (juin)</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--danger)">${remaining.toLocaleString('fr-FR')} DT</div>
+        ${paidToward>0?`<div style="font-size:11px;color:var(--muted);margin-top:4px">Déjà payé ce mois : ${paidToward.toLocaleString('fr-FR')} DT</div>`:''}
       </div>
       <div style="background:rgba(0,0,0,0.03);border-radius:12px;padding:12px;font-size:12px;color:var(--muted)">
         Payé actuellement : <strong style="color:var(--dark)">${fmt(exp.paid)}</strong><br>
-        Après paiement : <strong style="color:var(--success)">${fmt(exp.paid + u.amount)}</strong> / ${fmt(exp.total)}
+        Après paiement : <strong style="color:var(--success)">${fmt(exp.paid + remaining)}</strong> / ${fmt(exp.total)}
       </div>
     </div>
   `;
   document.getElementById('modal-actions').innerHTML = `
     <button class="btn-cancel" onclick="closeModal()">Annuler</button>
-    <button class="btn-save" style="background:linear-gradient(135deg,#8C3030,#C04040)" onclick="applyUrgentPay(${idx})">✓ Confirmer le paiement</button>
+    <button class="btn-save" style="background:linear-gradient(135deg,#8C3030,#C04040)" onclick="applyUrgentPay(${idx},${remaining})">✓ Confirmer le paiement</button>
   `;
   openModal();
 }
 
-function applyUrgentPay(idx) {
+function applyUrgentPay(idx, amount) {
   const u = URGENT_JUIN[idx];
   const expIdx = expenses.findIndex(e => e.id === u.expId);
   if (expIdx < 0) { toast('⚠️ Erreur'); closeModal(); return; }
-  expenses[expIdx].paid = Math.min(expenses[expIdx].paid + u.amount, expenses[expIdx].total);
-  expenses[expIdx].note = expenses[expIdx].note + ' · +' + u.amount.toLocaleString('fr-FR') + ' DT payés (acompte juin)';
+  expenses[expIdx].paid = Math.min(expenses[expIdx].paid + amount, expenses[expIdx].total);
+  expenses[expIdx].note = expenses[expIdx].note + ' · +' + amount.toLocaleString('fr-FR') + ' DT (acompte juin)';
   saveExpenses();
   closeModal();
   renderAll();
-  toast('✓ ' + u.amount.toLocaleString('fr-FR') + ' DT ajoutés à ' + u.name);
+  toast('✓ ' + amount.toLocaleString('fr-FR') + ' DT ajoutés à ' + u.name);
 }
 
 function renderUrgentBlock(totalRest) {
@@ -1701,7 +1704,13 @@ function renderUrgentBlock(totalRest) {
   if (currentUser !== 'Mohamed') { el.innerHTML = ''; return; }
 
   const urgentTotal = URGENT_JUIN.reduce((s, u) => s + u.amount, 0);
-  const restAfter   = totalRest - urgentTotal;
+  // Compute real remaining for each urgent item
+  const urgentRemaining = URGENT_JUIN.reduce((s, u) => {
+    const exp = expenses.find(e => e.id === u.expId);
+    const paidToward = exp ? Math.max(0, exp.paid - u.prevPaid) : 0;
+    return s + Math.max(0, u.amount - paidToward);
+  }, 0);
+  const restAfterReal = totalRest - urgentRemaining;
 
   el.innerHTML = `
     <div class="urgent-section">
@@ -1714,21 +1723,23 @@ function renderUrgentBlock(totalRest) {
       </div>
 
       ${URGENT_JUIN.map((u,i) => {
-        // Find matching expense to check if already paid this amount
-        const exp = expenses.find(e => e.name.toLowerCase().includes(u.match));
-        const alreadyPaidThis = exp && exp.paid >= (u.prevPaid + u.amount);
+        const exp = expenses.find(e => e.id === u.expId);
+        // Target = prevPaid + amount. Already paid above prevPaid = what's been paid toward this juin target
+        const alreadyPaidToward = exp ? Math.max(0, exp.paid - u.prevPaid) : 0;
+        const remaining = Math.max(0, u.amount - alreadyPaidToward);
+        const fullyPaid = remaining === 0;
         return `
         <div class="urgent-item">
           <div class="urgent-item-left">
             <div class="urgent-item-icon">${u.icon}</div>
             <div>
               <div class="urgent-item-name">${u.name}</div>
-              <div class="urgent-item-sub">${alreadyPaidThis ? '✓ Acompte juin payé' : u.sub}</div>
+              <div class="urgent-item-sub">${fullyPaid ? '✓ Acompte juin complété' : alreadyPaidToward > 0 ? 'Payé '+alreadyPaidToward.toLocaleString('fr-FR')+' DT · reste '+remaining.toLocaleString('fr-FR')+' DT' : u.sub}</div>
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:8px">
-            <div class="urgent-item-amt" style="color:${alreadyPaidThis?'#7DD3A0':'#F5A0A0'}">${u.amount.toLocaleString('fr-FR')} DT</div>
-            ${alreadyPaidThis
+            <div class="urgent-item-amt" style="color:${fullyPaid?'#7DD3A0':alreadyPaidToward>0?'#F0C060':'#F5A0A0'}">${remaining.toLocaleString('fr-FR')} DT</div>
+            ${fullyPaid
               ? `<span style="font-size:10px;font-weight:700;background:rgba(74,124,89,0.2);color:#7DD3A0;padding:4px 8px;border-radius:8px;border:1px solid rgba(74,124,89,0.3)">✓ Payé</span>`
               : `<button onclick="confirmUrgentPay(${i})" style="font-size:11px;font-weight:700;background:rgba(226,75,74,0.15);color:#F5A0A0;padding:5px 10px;border-radius:8px;border:1px solid rgba(226,75,74,0.3);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.15s" onmouseover="this.style.background='rgba(226,75,74,0.3)'" onmouseout="this.style.background='rgba(226,75,74,0.15)'">+ Payer</button>`
             }
@@ -1738,13 +1749,13 @@ function renderUrgentBlock(totalRest) {
       }).join('')}
 
       <div class="urgent-total-row">
-        <div class="urgent-total-label">Total à payer en juin</div>
-        <div class="urgent-total-val">${urgentTotal.toLocaleString('fr-FR')} DT</div>
+        <div class="urgent-total-label">Reste à payer — Juin</div>
+        <div class="urgent-total-val">${urgentRemaining.toLocaleString('fr-FR')} DT</div>
       </div>
 
       <div class="urgent-restant-row">
-        <div class="urgent-restant-label">💰 Restant après juin</div>
-        <div class="urgent-restant-val" style="color:${restAfter <= 0 ? '#7DD3A0' : '#F09090'}">${restAfter.toLocaleString('fr-FR')} DT</div>
+        <div class="urgent-restant-label">💰 Restant global après juin</div>
+        <div class="urgent-restant-val" style="color:${restAfterReal <= 0 ? '#7DD3A0' : '#F09090'}">${restAfterReal.toLocaleString('fr-FR')} DT</div>
       </div>
     </div>
   `;
