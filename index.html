@@ -1074,8 +1074,8 @@ const CAT_CLASSES = {
 const VOYAGE_TOTAL = 14750;
 
 const DEFAULT_EXPENSES = [
-  {id:1, name:'Frikha Concept (Déco cérémonie)', cat:'Mobilier', total:8050, paid:4675,
-    note:'3675 DT + 300 DT Syrine + 700 DT cadeau Aymen affectés ici — solde 3375 DT restant'},
+  {id:1, name:'Frikha Concept (Meuble maison)', cat:'Mobilier', total:8050, paid:5100,
+    note:'3675 DT + 300 DT Syrine + 700 DT Aymen + 425 DT (juin) = 5100 DT payés — solde 2950 DT restant'},
   {id:3, name:'Photographe', cat:'Cérémonie', total:1750, paid:600, note:'Solde 1150 DT restant'},
   {id:13,name:'Hlou', cat:'Cérémonie', total:1000, paid:1000, note:'Payé par Najwa comme cadeau ✓'},
   {id:5, name:'Palais Kobbet Ennhas', cat:'Salle', total:1400, paid:850, note:'850 DT payés — solde 550 DT restant'},
@@ -1112,12 +1112,12 @@ const DEFAULT_EXPENSES = [
 ];
 
 const DEFAULT_GIFTS = [
-  {id:1,person:'Slim',   amount:5000, status:'promised', note:'Traiteur payé en nature — promesse sûre, non remis en main propre'},
+  {id:1,person:'Slim',   amount:5000, status:'paid',     note:'✅ Reçu en main propre — Traiteur + Décoration soirée'},
   {id:2,person:'Najwa',  amount:1000, status:'promised', note:'Hlou en nature — promesse sûre, non remis en main propre'},
   {id:3,person:'Amal',   amount:2000, status:'promised', note:'Meuble Dressing — promesse sûre, non remis en main propre'},
   {id:4,person:'Syrine', amount:2000, status:'promised', note:'1700 DT TV + 300 DT Frikha — promesse sûre, non remis en main propre'},
   {id:5,person:'Raslen', amount:430,  status:'paid',     note:'✅ Reçu en main propre — GAZ en nature'},
-  {id:6,person:'Oussema',amount:2800, status:'promised', note:'Table salle à manger — promesse sûre, non remis en main propre'},
+  {id:6,person:'Oussema',amount:2800, status:'paid',     note:'✅ Reçu en main propre — Table salle à manger'},
   {id:7,person:'Aymen',  amount:700,  status:'promised', note:'Affecté à Frikha Concept — promesse sûre, non remis en main propre'},
   {id:8,person:'Riadh',  amount:600,  status:'paid',     note:'✅ Reçu en main propre — Table basse'},
 ];
@@ -1208,7 +1208,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v37';
+const VER = 'v40';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
@@ -1649,7 +1649,7 @@ function closeChart() {
 // ============================================================
 const URGENT_JUIN = [
   { icon: '👗', name: 'Robe de mariage', sub: 'Acompte juin obligatoire', amount: 1000, match: 'robe de mariage', expId: 20, prevPaid: 500 },
-  { icon: '🛋️', name: 'Frikha Concept', sub: 'Acompte juin obligatoire', amount: 1000, match: 'frikha',          expId: 1,  prevPaid: 4675 },
+  { icon: '🛋️', name: 'Frikha Concept (Meuble maison)', sub: 'Acompte juin obligatoire', amount: 1000, match: 'frikha', expId: 1, prevPaid: 4675 },
 ];
 
 function confirmUrgentPay(idx) {
