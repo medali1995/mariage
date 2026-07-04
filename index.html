@@ -749,6 +749,116 @@ body {
 .urgent-restant-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; font-weight:600; }
 .urgent-restant-val { font-size: 14px; font-weight: 800; color: #F09090; }
 
+/* ========== PAIEMENTS ATTENDUS ========== */
+.pending-hero {
+  background: linear-gradient(145deg, #0D1A0D, #1A2D1A);
+  border: 1px solid rgba(56,180,56,0.2);
+  border-radius: 22px; padding: 20px; margin-bottom: 14px;
+  position: relative; overflow: hidden;
+}
+.pending-hero::before {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:150px; height:150px; border-radius:50%;
+  background: radial-gradient(circle, rgba(56,180,56,0.07) 0%, transparent 70%);
+}
+.pending-item {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 18px; padding: 15px 16px; margin-bottom: 10px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.pending-item.received {
+  background: rgba(232,245,238,0.7);
+  border-color: var(--success-border);
+}
+.pending-item-top { display: flex; align-items: flex-start; gap: 12px; }
+.pending-item-icon {
+  width: 42px; height: 42px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.pending-item-info { flex: 1; min-width: 0; }
+.pending-item-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.pending-item-sub  { font-size: 10px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+.pending-item-amt  { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+.pending-item-bottom { margin-top: 12px; display: flex; gap: 8px; align-items: center; }
+.pending-type-badge {
+  font-size: 9px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.type-cheque   { background: #EEF0FB; color: #3A4AAA; }
+.type-dette    { background: #FEF3DC; color: #9A6E1A; }
+.type-promesse { background: #F0E8F8; color: #6A2A9A; }
+.type-recu     { background: var(--success-bg); color: var(--success); }
+.pending-confirm-btn {
+  margin-left: auto; padding: 7px 14px; border-radius: 10px;
+  font-size: 11px; font-weight: 700; border: none; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.18s;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+}
+.pending-confirm-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.pending-received-label {
+  margin-left: auto; font-size: 11px; font-weight: 700; color: var(--success);
+  display: flex; align-items: center; gap: 4px;
+}
+.pending-date { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.pending-affect { font-size: 10px; color: var(--mid); margin-top: 4px; }
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== PAIEMENTS ATTENDUS ========== */
+.pending-hero {
+  background: linear-gradient(145deg, #0D1A0D, #1A2D1A);
+  border: 1px solid rgba(56,180,56,0.2);
+  border-radius: 22px; padding: 20px; margin-bottom: 14px;
+  position: relative; overflow: hidden;
+}
+.pending-hero::before {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:150px; height:150px; border-radius:50%;
+  background: radial-gradient(circle, rgba(56,180,56,0.07) 0%, transparent 70%);
+}
+.pending-item {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 18px; padding: 15px 16px; margin-bottom: 10px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.pending-item.received {
+  background: rgba(232,245,238,0.7);
+  border-color: var(--success-border);
+}
+.pending-item-top { display: flex; align-items: flex-start; gap: 12px; }
+.pending-item-icon {
+  width: 42px; height: 42px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.pending-item-info { flex: 1; min-width: 0; }
+.pending-item-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.pending-item-sub  { font-size: 10px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+.pending-item-amt  { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+.pending-item-bottom { margin-top: 12px; display: flex; gap: 8px; align-items: center; }
+.pending-type-badge {
+  font-size: 9px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.type-cheque   { background: #EEF0FB; color: #3A4AAA; }
+.type-dette    { background: #FEF3DC; color: #9A6E1A; }
+.type-promesse { background: #F0E8F8; color: #6A2A9A; }
+.type-recu     { background: var(--success-bg); color: var(--success); }
+.pending-confirm-btn {
+  margin-left: auto; padding: 7px 14px; border-radius: 10px;
+  font-size: 11px; font-weight: 700; border: none; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.18s;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+}
+.pending-confirm-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.pending-received-label {
+  margin-left: auto; font-size: 11px; font-weight: 700; color: var(--success);
+  display: flex; align-items: center; gap: 4px;
+}
+.pending-date { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.pending-affect { font-size: 10px; color: var(--mid); margin-top: 4px; }
+
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== PAIEMENTS URGENTS ========== */
 .urgent-section {
   background: linear-gradient(135deg, #1A0A0A, #2D1010);
@@ -788,6 +898,116 @@ body {
 }
 .urgent-restant-label { font-size: 10px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; font-weight:600; }
 .urgent-restant-val { font-size: 14px; font-weight: 800; color: #F09090; }
+
+/* ========== PAIEMENTS ATTENDUS ========== */
+.pending-hero {
+  background: linear-gradient(145deg, #0D1A0D, #1A2D1A);
+  border: 1px solid rgba(56,180,56,0.2);
+  border-radius: 22px; padding: 20px; margin-bottom: 14px;
+  position: relative; overflow: hidden;
+}
+.pending-hero::before {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:150px; height:150px; border-radius:50%;
+  background: radial-gradient(circle, rgba(56,180,56,0.07) 0%, transparent 70%);
+}
+.pending-item {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 18px; padding: 15px 16px; margin-bottom: 10px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.pending-item.received {
+  background: rgba(232,245,238,0.7);
+  border-color: var(--success-border);
+}
+.pending-item-top { display: flex; align-items: flex-start; gap: 12px; }
+.pending-item-icon {
+  width: 42px; height: 42px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.pending-item-info { flex: 1; min-width: 0; }
+.pending-item-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.pending-item-sub  { font-size: 10px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+.pending-item-amt  { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+.pending-item-bottom { margin-top: 12px; display: flex; gap: 8px; align-items: center; }
+.pending-type-badge {
+  font-size: 9px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.type-cheque   { background: #EEF0FB; color: #3A4AAA; }
+.type-dette    { background: #FEF3DC; color: #9A6E1A; }
+.type-promesse { background: #F0E8F8; color: #6A2A9A; }
+.type-recu     { background: var(--success-bg); color: var(--success); }
+.pending-confirm-btn {
+  margin-left: auto; padding: 7px 14px; border-radius: 10px;
+  font-size: 11px; font-weight: 700; border: none; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.18s;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+}
+.pending-confirm-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.pending-received-label {
+  margin-left: auto; font-size: 11px; font-weight: 700; color: var(--success);
+  display: flex; align-items: center; gap: 4px;
+}
+.pending-date { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.pending-affect { font-size: 10px; color: var(--mid); margin-top: 4px; }
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== PAIEMENTS ATTENDUS ========== */
+.pending-hero {
+  background: linear-gradient(145deg, #0D1A0D, #1A2D1A);
+  border: 1px solid rgba(56,180,56,0.2);
+  border-radius: 22px; padding: 20px; margin-bottom: 14px;
+  position: relative; overflow: hidden;
+}
+.pending-hero::before {
+  content:''; position:absolute; top:-40px; right:-40px;
+  width:150px; height:150px; border-radius:50%;
+  background: radial-gradient(circle, rgba(56,180,56,0.07) 0%, transparent 70%);
+}
+.pending-item {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 18px; padding: 15px 16px; margin-bottom: 10px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.pending-item.received {
+  background: rgba(232,245,238,0.7);
+  border-color: var(--success-border);
+}
+.pending-item-top { display: flex; align-items: flex-start; gap: 12px; }
+.pending-item-icon {
+  width: 42px; height: 42px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.pending-item-info { flex: 1; min-width: 0; }
+.pending-item-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.pending-item-sub  { font-size: 10px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+.pending-item-amt  { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+.pending-item-bottom { margin-top: 12px; display: flex; gap: 8px; align-items: center; }
+.pending-type-badge {
+  font-size: 9px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.type-cheque   { background: #EEF0FB; color: #3A4AAA; }
+.type-dette    { background: #FEF3DC; color: #9A6E1A; }
+.type-promesse { background: #F0E8F8; color: #6A2A9A; }
+.type-recu     { background: var(--success-bg); color: var(--success); }
+.pending-confirm-btn {
+  margin-left: auto; padding: 7px 14px; border-radius: 10px;
+  font-size: 11px; font-weight: 700; border: none; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.18s;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+}
+.pending-confirm-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.pending-received-label {
+  margin-left: auto; font-size: 11px; font-weight: 700; color: var(--success);
+  display: flex; align-items: center; gap: 4px;
+}
+.pending-date { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.pending-affect { font-size: 10px; color: var(--mid); margin-top: 4px; }
 
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== */
 @media (max-width: 380px) {
@@ -860,6 +1080,9 @@ body {
       </button>
       <button class="nav-tab" onclick="showPage('stats',this)">
         <span class="nav-tab-icon">📊</span>Stats
+      </button>
+      <button class="nav-tab" onclick="showPage('pending',this)">
+        <span class="nav-tab-icon">⏳</span>Attendus
       </button>
     </div>
   </div>
@@ -1026,6 +1249,9 @@ body {
   <!-- ======== STATS PAGE ======== -->
   <div class="page" id="page-stats"></div>
 
+  <!-- ======== PAIEMENTS ATTENDUS ======== -->
+  <div class="page" id="page-pending"></div>
+
   <button class="fab" id="main-fab" onclick="openAddModal()">+</button>
 </div>
 
@@ -1074,8 +1300,8 @@ const CAT_CLASSES = {
 const VOYAGE_TOTAL = 14750;
 
 const DEFAULT_EXPENSES = [
-  {id:1, name:'Frikha Concept (Meuble maison)', cat:'Mobilier', total:8050, paid:5100,
-    note:'3675 DT + 300 DT Syrine + 700 DT Aymen + 425 DT (juin) = 5100 DT payés — solde 2950 DT restant'},
+  {id:1, name:'Frikha Concept (Meuble maison)', cat:'Mobilier', total:8050, paid:7300,
+    note:'4100 DT payés · 700 DT Aymen (promesse, comptabilisé) · 2200 DT dette Malek (comptabilisé) · 300 DT Syrine (comptabilisé) = 7300 DT · solde 750 DT restant'},
   {id:3, name:'Photographe', cat:'Cérémonie', total:1750, paid:600, note:'Solde 1150 DT restant'},
   {id:13,name:'Hlou', cat:'Cérémonie', total:1000, paid:1000, note:'Payé par Najwa comme cadeau ✓'},
   {id:5, name:'Palais Kobbet Ennhas', cat:'Salle', total:1400, paid:850, note:'850 DT payés — solde 550 DT restant'},
@@ -1094,9 +1320,9 @@ const DEFAULT_EXPENSES = [
   {id:9, name:'TV 65"', cat:'Électroménager', total:1700, paid:1700,
     note:'Syrine a donné 2000 DT total : 1700 DT pour la TV + 300 DT pour Frikha Concept — TV payée ✓'},
   {id:10,name:'Machine à laver', cat:'Électroménager', total:1200, paid:1200, note:'Payée ✓'},
+  {id:32,name:'Réfrigérateur', cat:'Électroménager', total:2400, paid:2400, note:'Cadeau de Tata Dorra — entièrement payé ✓'},
   {id:25,name:"Console d'entrée", cat:'Mobilier', total:400, paid:400, note:"Console d'entrée (meuble d'entrée, pas PlayStation) — entièrement payé ✓"},
   {id:18,name:'OR pour mariage', cat:'Bijoux', total:7450, paid:7450, note:'Entièrement payé ✓'},
-  {id:16,name:'Décor de maison (Menuiserie)', cat:'Mobilier', total:3500, paid:2200, note:'2200 DT prêts — 1300 DT restant'},
   {id:29,name:'Traiteur + Décoration soirée', cat:'Restauration', total:10000, paid:8400,
     note:'Slim : 5000 DT ✓ · Mohamed Ali : 1000 DT avance + 2400 DT chèque (31 août) = 8400 DT payés — solde 1600 DT restant'},
   
@@ -1118,8 +1344,9 @@ const DEFAULT_GIFTS = [
   {id:4,person:'Syrine', amount:2000, status:'promised', note:'1700 DT TV + 300 DT Frikha — promesse sûre, non remis en main propre'},
   {id:5,person:'Raslen', amount:430,  status:'paid',     note:'✅ Reçu en main propre — GAZ en nature'},
   {id:6,person:'Oussema',amount:2800, status:'paid',     note:'✅ Reçu en main propre — Table salle à manger'},
-  {id:7,person:'Aymen',  amount:700,  status:'promised', note:'Affecté à Frikha Concept — promesse sûre, non remis en main propre'},
-  {id:8,person:'Riadh',  amount:600,  status:'paid',     note:'✅ Reçu en main propre — Table basse'},
+  {id:7,person:'Aymen',  amount:700,  status:'paid',     note:'✅ Reçu et affecté à Frikha Concept — comptabilisé dans les paiements Frikha'},
+  {id:8,person:'Riadh',      amount:600,  status:'paid',     note:'✅ Reçu en main propre — Table basse'},
+  {id:10,person:'Tata Dorra',amount:2400, status:'paid',     note:'✅ Reçu en main propre — Réfrigérateur'},
 ];
 
 // ============================================================
@@ -1208,7 +1435,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v40';
+const VER = 'v48';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
@@ -1219,6 +1446,7 @@ function saveGifts() {
 }
 function loadData() {
   loadZhez();
+  loadPending();
   if (currentUser === 'Rahma') {
     try { const d = localStorage.getItem('mwr_exp_r'); expenses = d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_EXPENSES)); } catch(e) { expenses = JSON.parse(JSON.stringify(RAHMA_EXPENSES)); }
     try { const d = localStorage.getItem('mwr_gft_r'); gifts = d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_GIFTS)); } catch(e) { gifts = JSON.parse(JSON.stringify(RAHMA_GIFTS)); }
@@ -1281,6 +1509,7 @@ function showPage(name, btn) {
   if (btn) btn.classList.add('active');
   document.getElementById('main-fab').style.display = name === 'depenses' ? 'flex' : 'none';
   if (name === 'stats') renderStats(statsView || 'self');
+  if (name === 'pending') renderPending();
   closeModal();
 }
 
@@ -1296,6 +1525,10 @@ function renderAll() {
   // Auto-refresh stats if stats page is active
   if (document.getElementById('page-stats').classList.contains('active')) {
     renderStats(statsView);
+  }
+  // Auto-refresh pending if active
+  if (document.getElementById('page-pending') && document.getElementById('page-pending').classList.contains('active')) {
+    renderPending();
   }
 }
 
@@ -1647,10 +1880,12 @@ function closeChart() {
 // ============================================================
 //  PAIEMENTS URGENTS JUIN
 // ============================================================
-const URGENT_JUIN = [
-  { icon: '👗', name: 'Robe de mariage', sub: 'Acompte juin obligatoire', amount: 1000, match: 'robe de mariage', expId: 20, prevPaid: 500 },
-  { icon: '🛋️', name: 'Frikha Concept (Meuble maison)', sub: 'Acompte juin obligatoire', amount: 1000, match: 'frikha', expId: 1, prevPaid: 4675 },
+const URGENT_JUILLET = [
+  { icon: '👗', name: 'Robe de mariage',  sub: 'Acompte juillet obligatoire', amount: 1000, expId: 20, prevPaid: 500  },
+  { icon: '🛋️', name: 'Frikha Concept',  sub: 'Acompte juillet obligatoire', amount: 750,  expId: 1,  prevPaid: 7300 },
+  { icon: '💄', name: 'Coiffeur / Maquillage', sub: 'Acompte juillet obligatoire', amount: 500, expId: 21, prevPaid: 0 },
 ];
+const URGENT_JUIN = URGENT_JUILLET;
 
 function confirmUrgentPay(idx) {
   const u = URGENT_JUIN[idx];
@@ -1665,7 +1900,7 @@ function confirmUrgentPay(idx) {
     <div style="text-align:center;padding:8px 0 16px">
       <div style="font-size:40px;margin-bottom:12px">${u.icon}</div>
       <div style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:6px">${u.name}</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:20px">Acompte obligatoire — Juin 2026</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:20px">Acompte obligatoire — Juillet 2026</div>
       <div style="background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:16px;padding:16px;margin-bottom:16px">
         <div style="font-size:10px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Reste à payer (juin)</div>
         <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--danger)">${remaining.toLocaleString('fr-FR')} DT</div>
@@ -1689,7 +1924,7 @@ function applyUrgentPay(idx, amount) {
   const expIdx = expenses.findIndex(e => e.id === u.expId);
   if (expIdx < 0) { toast('⚠️ Erreur'); closeModal(); return; }
   expenses[expIdx].paid = Math.min(expenses[expIdx].paid + amount, expenses[expIdx].total);
-  expenses[expIdx].note = expenses[expIdx].note + ' · +' + amount.toLocaleString('fr-FR') + ' DT (acompte juin)';
+  expenses[expIdx].note = expenses[expIdx].note + ' · +' + amount.toLocaleString('fr-FR') + ' DT (acompte juillet)';
   saveExpenses();
   closeModal();
   renderAll();
@@ -1717,7 +1952,7 @@ function renderUrgentBlock(totalRest) {
       <div class="urgent-header">
         <div class="urgent-title-wrap">
           <div class="urgent-dot"></div>
-          <div class="urgent-title">📅 Paiements obligatoires — Juin</div>
+          <div class="urgent-title">📅 Paiements obligatoires — Juillet</div>
         </div>
         <span class="urgent-badge">${URGENT_JUIN.length} postes</span>
       </div>
@@ -1734,7 +1969,7 @@ function renderUrgentBlock(totalRest) {
             <div class="urgent-item-icon">${u.icon}</div>
             <div>
               <div class="urgent-item-name">${u.name}</div>
-              <div class="urgent-item-sub">${fullyPaid ? '✓ Acompte juin complété' : alreadyPaidToward > 0 ? 'Payé '+alreadyPaidToward.toLocaleString('fr-FR')+' DT · reste '+remaining.toLocaleString('fr-FR')+' DT' : u.sub}</div>
+              <div class="urgent-item-sub">${fullyPaid ? '✓ Acompte juillet complété' : alreadyPaidToward > 0 ? 'Payé '+alreadyPaidToward.toLocaleString('fr-FR')+' DT · reste '+remaining.toLocaleString('fr-FR')+' DT' : u.sub}</div>
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:8px">
@@ -1749,7 +1984,7 @@ function renderUrgentBlock(totalRest) {
       }).join('')}
 
       <div class="urgent-total-row">
-        <div class="urgent-total-label">Reste à payer — Juin</div>
+        <div class="urgent-total-label">Reste à payer — Juillet</div>
         <div class="urgent-total-val">${urgentRemaining.toLocaleString('fr-FR')} DT</div>
       </div>
 
@@ -2207,6 +2442,185 @@ function renderStatsBoth(mTotal,mPaid,mRest,mGift,mPct,rTotal,rPaid,rRest,rGift,
       </div>
     </div>
   `;
+}
+
+// ============================================================
+//  PAIEMENTS ATTENDUS
+// ============================================================
+const PENDING_DEFAULT = [
+  {
+    id:1, icon:'🏦', name:'Chèque Traiteur + Déco',
+    person:'Mohamed Ali', amount:2400,
+    type:'cheque', date:'31 août 2026',
+    affect:'Traiteur + Décoration soirée',
+    expId:29, received:false,
+    note:'Chèque à encaisser le 31 août — affecté au solde Traiteur + Déco'
+  },
+  {
+    id:2, icon:'👤', name:'Dette Malek',
+    person:'Malek', amount:2200,
+    type:'dette', date:'Septembre 2026',
+    affect:'Frikha Concept (Meuble maison)',
+    expId:1, received:false,
+    note:'2200 DT à recevoir de Malek en septembre — comptabilisé dans Frikha'
+  },
+  {
+    id:3, icon:'👤', name:'Paiement Youssef Bouhamed',
+    person:'Youssef Bouhamed', amount:1500,
+    type:'dette', date:'01 septembre 2026',
+    affect:'Meuble Séjour',
+    expId:19, received:false,
+    note:'1500 DT à recevoir le 01 sept — comptabilisé dans Meuble Séjour'
+  },
+  {
+    id:4, icon:'🎁', name:'Contribution Syrine',
+    person:'Syrine', amount:300,
+    type:'promesse', date:'Promesse confirmée',
+    affect:'Frikha Concept (Meuble maison)',
+    expId:1, received:false,
+    note:'300 DT promis par Syrine — comptabilisé dans Frikha'
+  },
+  {
+    id:5, icon:'🎁', name:'Contribution Aymen',
+    person:'Aymen', amount:700,
+    type:'promesse', date:'Promesse confirmée',
+    affect:'Frikha Concept (Meuble maison)',
+    expId:1, received:false,
+    note:'700 DT promis par Aymen — comptabilisé dans Frikha'
+  },
+];
+
+let pendingItems = [];
+
+function loadPending() {
+  try {
+    const d = localStorage.getItem('mwr_pending');
+    pendingItems = d ? JSON.parse(d) : JSON.parse(JSON.stringify(PENDING_DEFAULT));
+  } catch(e) { pendingItems = JSON.parse(JSON.stringify(PENDING_DEFAULT)); }
+}
+
+function savePending() {
+  try { localStorage.setItem('mwr_pending', JSON.stringify(pendingItems)); } catch(e) {}
+}
+
+function renderPending() {
+  const page = document.getElementById('page-pending');
+  if (!page) return;
+
+  const totalAmt     = pendingItems.reduce((s,p) => s + p.amount, 0);
+  const receivedAmt  = pendingItems.filter(p=>p.received).reduce((s,p) => s + p.amount, 0);
+  const pendingAmt   = pendingItems.filter(p=>!p.received).reduce((s,p) => s + p.amount, 0);
+  const pBar         = totalAmt > 0 ? Math.round(receivedAmt/totalAmt*100) : 0;
+
+  const typeLabels = { cheque:'Chèque', dette:'Dette', promesse:'Promesse', recu:'Reçu' };
+  const typeClass  = { cheque:'type-cheque', dette:'type-dette', promesse:'type-promesse' };
+  const catColors  = { cheque:'#EEF0FB', dette:'#FEF3DC', promesse:'#F0E8F8' };
+
+  const notReceived = pendingItems.filter(p=>!p.received);
+  const received    = pendingItems.filter(p=>p.received);
+
+  page.innerHTML = `
+    <!-- HERO -->
+    <div class="pending-hero">
+      <div style="font-size:9px;color:#7DD3A0;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px">⏳ Paiements attendus</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;color:#A8F0C0;line-height:1;margin-bottom:4px">${fmt(totalAmt)}</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:16px">${pendingItems.length} paiements · ${pendingItems.filter(p=>!p.received).length} en attente</div>
+      <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:16px">
+        <div style="height:100%;width:${pBar}%;background:linear-gradient(90deg,#1A7A1A,#3DB83D);border-radius:3px;transition:width 0.8s"></div>
+      </div>
+      <div style="display:flex;gap:0">
+        <div style="flex:1"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">Reçu / Comptabilisé</div><div style="font-size:14px;font-weight:700;color:#7DD3A0;margin-top:3px">${fmt(receivedAmt)}</div></div>
+        <div style="flex:1;border-left:1px solid rgba(255,255,255,0.07);padding-left:12px;margin-left:12px"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">En attente</div><div style="font-size:14px;font-weight:700;color:#F0C060;margin-top:3px">${fmt(pendingAmt)}</div></div>
+        <div style="flex:1;border-left:1px solid rgba(255,255,255,0.07);padding-left:12px;margin-left:12px"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">Avancement</div><div style="font-size:14px;font-weight:700;color:#A8F0C0;margin-top:3px">${pBar}%</div></div>
+      </div>
+    </div>
+
+    ${notReceived.length ? `
+    <div class="section-hdr">
+      <div class="section-hdr-left">
+        <div class="section-dot" style="background:#F0A030"></div>
+        <div class="section-title">En attente de réception</div>
+      </div>
+      <span class="section-badge" style="background:#FEF3DC;color:#7A4A00">${notReceived.length}</span>
+    </div>
+    ${notReceived.map(p => pendingCard(p)).join('')}
+    ` : ''}
+
+    <div class="section-hdr" style="margin-top:8px">
+      <div class="section-hdr-left">
+        <div class="section-dot" style="background:var(--success)"></div>
+        <div class="section-title">Reçu / Comptabilisé ✓</div>
+      </div>
+      <span class="section-badge" style="background:var(--success-bg);color:var(--success)">${received.length}</span>
+    </div>
+    ${received.map(p => pendingCard(p)).join('')}
+  `;
+}
+
+function pendingCard(p) {
+  const typeClass  = { cheque:'type-cheque', dette:'type-dette', promesse:'type-promesse' };
+  const typeLabels = { cheque:'📄 Chèque', dette:'💸 Dette', promesse:'🤝 Promesse' };
+  const bgIcon     = { cheque:'#EEF0FB', dette:'#FEF3DC', promesse:'#F0E8F8' };
+
+  return `
+    <div class="pending-item ${p.received ? 'received' : ''}">
+      <div class="pending-item-top">
+        <div class="pending-item-icon" style="background:${bgIcon[p.type]||'#F5F0E8'}">${p.icon}</div>
+        <div class="pending-item-info">
+          <div class="pending-item-name">${p.name}</div>
+          <div class="pending-item-sub">De : <strong>${p.person}</strong></div>
+          <div class="pending-affect">→ Affecté à : ${p.affect}</div>
+        </div>
+        <div class="pending-item-amt" style="color:${p.received?'var(--success)':'var(--gold-dark)'}">${fmt(p.amount)}</div>
+      </div>
+      <div class="pending-item-bottom">
+        <span class="pending-type-badge ${p.received ? 'type-recu' : (typeClass[p.type]||'')}">${p.received ? '✅ Reçu' : (typeLabels[p.type]||p.type)}</span>
+        <span class="pending-date">📅 ${p.date}</span>
+        ${p.received
+          ? `<span class="pending-received-label">✓ Comptabilisé</span>`
+          : `<button class="pending-confirm-btn" onclick="confirmPendingReceived(${p.id})">✓ Marquer reçu</button>`
+        }
+      </div>
+      ${p.note ? `<div class="exp-card-note" style="margin-top:8px">ℹ️ ${p.note}</div>` : ''}
+    </div>
+  `;
+}
+
+function confirmPendingReceived(id) {
+  const item = pendingItems.find(p => p.id === id);
+  if (!item) return;
+
+  document.getElementById('modal-title').textContent = '✓ Confirmer la réception';
+  document.getElementById('modal-body').innerHTML = `
+    <div style="text-align:center;padding:8px 0 16px">
+      <div style="font-size:44px;margin-bottom:12px">${item.icon}</div>
+      <div style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:4px">${item.name}</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:20px">De : ${item.person}</div>
+      <div style="background:var(--success-bg);border:1px solid var(--success-border);border-radius:16px;padding:16px;margin-bottom:16px">
+        <div style="font-size:10px;font-weight:700;color:var(--success);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Montant reçu</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--success)">${fmt(item.amount)}</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.03);border-radius:12px;padding:12px;font-size:12px;color:var(--muted)">
+        Sera affecté à : <strong style="color:var(--dark)">${item.affect}</strong>
+      </div>
+    </div>
+  `;
+  document.getElementById('modal-actions').innerHTML = `
+    <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+    <button class="btn-save" onclick="applyPendingReceived(${id})">✓ Confirmer</button>
+  `;
+  openModal();
+}
+
+function applyPendingReceived(id) {
+  const idx = pendingItems.findIndex(p => p.id === id);
+  if (idx < 0) { closeModal(); return; }
+  pendingItems[idx].received = true;
+  savePending();
+  closeModal();
+  renderPending();
+  renderDepenses();
+  toast('✓ Paiement marqué comme reçu !');
 }
 
 // ============================================================
