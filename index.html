@@ -801,8 +801,184 @@ body {
   margin-left: auto; font-size: 11px; font-weight: 700; color: var(--success);
   display: flex; align-items: center; gap: 4px;
 }
-.pending-date { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.pending-date { font-size: 12px; color: var(--gold-dark); display: flex; align-items: center; gap: 4px; font-weight: 700; }
 .pending-affect { font-size: 10px; color: var(--mid); margin-top: 4px; }
+
+/* ========== WIDGET PAIEMENTS DU MOIS ========== */
+.monthly-widget {
+  border-radius: 20px; padding: 16px;
+  margin-bottom: 14px; overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.25);
+  background: linear-gradient(145deg, #12100A, #1E1A10);
+  position: relative;
+}
+.monthly-widget::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+}
+.monthly-widget-empty {
+  background: rgba(0,0,0,0.03);
+  border: 1px dashed var(--border);
+  border-radius: 16px; padding: 14px 16px;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mw-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.mw-title {
+  font-size: 9px; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-month-badge {
+  font-size: 10px; font-weight: 700;
+  background: rgba(201,168,76,0.15); color: var(--gold-light);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 3px 10px; border-radius: 20px;
+}
+.mw-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 12px 14px;
+  margin-bottom: 8px; position: relative;
+}
+.mw-item:last-child { margin-bottom: 0; }
+.mw-item-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px;
+  margin-bottom: 8px;
+}
+.mw-item-left { flex: 1; }
+.mw-item-person {
+  font-size: 14px; font-weight: 700; color: var(--gold-light);
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-item-date { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.mw-item-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--gold-light);
+  letter-spacing: -0.02em; flex-shrink: 0;
+}
+.mw-item-affect {
+  font-size: 10px; color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.04);
+  padding: 4px 10px; border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-bottom: 8px;
+}
+.mw-item-bottom { display: flex; align-items: center; justify-content: space-between; }
+.mw-status {
+  font-size: 10px; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+  background: rgba(240,192,96,0.15); color: #F0C060;
+  border: 1px solid rgba(240,192,96,0.2);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.mw-btn {
+  font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 10px; border: none;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+  transition: all 0.18s;
+}
+.mw-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.mw-received {
+  font-size: 10px; font-weight: 700; color: #7DD3A0;
+  display: flex; align-items: center; gap: 4px;
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== WIDGET PAIEMENTS DU MOIS ========== */
+.monthly-widget {
+  border-radius: 20px; padding: 16px;
+  margin-bottom: 14px; overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.25);
+  background: linear-gradient(145deg, #12100A, #1E1A10);
+  position: relative;
+}
+.monthly-widget::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+}
+.monthly-widget-empty {
+  background: rgba(0,0,0,0.03);
+  border: 1px dashed var(--border);
+  border-radius: 16px; padding: 14px 16px;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mw-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.mw-title {
+  font-size: 9px; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-month-badge {
+  font-size: 10px; font-weight: 700;
+  background: rgba(201,168,76,0.15); color: var(--gold-light);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 3px 10px; border-radius: 20px;
+}
+.mw-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 12px 14px;
+  margin-bottom: 8px; position: relative;
+}
+.mw-item:last-child { margin-bottom: 0; }
+.mw-item-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px;
+  margin-bottom: 8px;
+}
+.mw-item-left { flex: 1; }
+.mw-item-person {
+  font-size: 14px; font-weight: 700; color: var(--gold-light);
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-item-date { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.mw-item-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--gold-light);
+  letter-spacing: -0.02em; flex-shrink: 0;
+}
+.mw-item-affect {
+  font-size: 10px; color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.04);
+  padding: 4px 10px; border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-bottom: 8px;
+}
+.mw-item-bottom { display: flex; align-items: center; justify-content: space-between; }
+.mw-status {
+  font-size: 10px; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+  background: rgba(240,192,96,0.15); color: #F0C060;
+  border: 1px solid rgba(240,192,96,0.2);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.mw-btn {
+  font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 10px; border: none;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+  transition: all 0.18s;
+}
+.mw-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.mw-received {
+  font-size: 10px; font-weight: 700; color: #7DD3A0;
+  display: flex; align-items: center; gap: 4px;
+}
 
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== PAIEMENTS ATTENDUS ========== */
 .pending-hero {
@@ -856,8 +1032,184 @@ body {
   margin-left: auto; font-size: 11px; font-weight: 700; color: var(--success);
   display: flex; align-items: center; gap: 4px;
 }
-.pending-date { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.pending-date { font-size: 12px; color: var(--gold-dark); display: flex; align-items: center; gap: 4px; font-weight: 700; }
 .pending-affect { font-size: 10px; color: var(--mid); margin-top: 4px; }
+
+/* ========== WIDGET PAIEMENTS DU MOIS ========== */
+.monthly-widget {
+  border-radius: 20px; padding: 16px;
+  margin-bottom: 14px; overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.25);
+  background: linear-gradient(145deg, #12100A, #1E1A10);
+  position: relative;
+}
+.monthly-widget::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+}
+.monthly-widget-empty {
+  background: rgba(0,0,0,0.03);
+  border: 1px dashed var(--border);
+  border-radius: 16px; padding: 14px 16px;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mw-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.mw-title {
+  font-size: 9px; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-month-badge {
+  font-size: 10px; font-weight: 700;
+  background: rgba(201,168,76,0.15); color: var(--gold-light);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 3px 10px; border-radius: 20px;
+}
+.mw-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 12px 14px;
+  margin-bottom: 8px; position: relative;
+}
+.mw-item:last-child { margin-bottom: 0; }
+.mw-item-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px;
+  margin-bottom: 8px;
+}
+.mw-item-left { flex: 1; }
+.mw-item-person {
+  font-size: 14px; font-weight: 700; color: var(--gold-light);
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-item-date { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.mw-item-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--gold-light);
+  letter-spacing: -0.02em; flex-shrink: 0;
+}
+.mw-item-affect {
+  font-size: 10px; color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.04);
+  padding: 4px 10px; border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-bottom: 8px;
+}
+.mw-item-bottom { display: flex; align-items: center; justify-content: space-between; }
+.mw-status {
+  font-size: 10px; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+  background: rgba(240,192,96,0.15); color: #F0C060;
+  border: 1px solid rgba(240,192,96,0.2);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.mw-btn {
+  font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 10px; border: none;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+  transition: all 0.18s;
+}
+.mw-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.mw-received {
+  font-size: 10px; font-weight: 700; color: #7DD3A0;
+  display: flex; align-items: center; gap: 4px;
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== WIDGET PAIEMENTS DU MOIS ========== */
+.monthly-widget {
+  border-radius: 20px; padding: 16px;
+  margin-bottom: 14px; overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.25);
+  background: linear-gradient(145deg, #12100A, #1E1A10);
+  position: relative;
+}
+.monthly-widget::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+}
+.monthly-widget-empty {
+  background: rgba(0,0,0,0.03);
+  border: 1px dashed var(--border);
+  border-radius: 16px; padding: 14px 16px;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mw-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.mw-title {
+  font-size: 9px; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-month-badge {
+  font-size: 10px; font-weight: 700;
+  background: rgba(201,168,76,0.15); color: var(--gold-light);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 3px 10px; border-radius: 20px;
+}
+.mw-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 12px 14px;
+  margin-bottom: 8px; position: relative;
+}
+.mw-item:last-child { margin-bottom: 0; }
+.mw-item-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px;
+  margin-bottom: 8px;
+}
+.mw-item-left { flex: 1; }
+.mw-item-person {
+  font-size: 14px; font-weight: 700; color: var(--gold-light);
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-item-date { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.mw-item-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--gold-light);
+  letter-spacing: -0.02em; flex-shrink: 0;
+}
+.mw-item-affect {
+  font-size: 10px; color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.04);
+  padding: 4px 10px; border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-bottom: 8px;
+}
+.mw-item-bottom { display: flex; align-items: center; justify-content: space-between; }
+.mw-status {
+  font-size: 10px; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+  background: rgba(240,192,96,0.15); color: #F0C060;
+  border: 1px solid rgba(240,192,96,0.2);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.mw-btn {
+  font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 10px; border: none;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+  transition: all 0.18s;
+}
+.mw-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.mw-received {
+  font-size: 10px; font-weight: 700; color: #7DD3A0;
+  display: flex; align-items: center; gap: 4px;
+}
 
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== PAIEMENTS URGENTS ========== */
 .urgent-section {
@@ -951,8 +1303,184 @@ body {
   margin-left: auto; font-size: 11px; font-weight: 700; color: var(--success);
   display: flex; align-items: center; gap: 4px;
 }
-.pending-date { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.pending-date { font-size: 12px; color: var(--gold-dark); display: flex; align-items: center; gap: 4px; font-weight: 700; }
 .pending-affect { font-size: 10px; color: var(--mid); margin-top: 4px; }
+
+/* ========== WIDGET PAIEMENTS DU MOIS ========== */
+.monthly-widget {
+  border-radius: 20px; padding: 16px;
+  margin-bottom: 14px; overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.25);
+  background: linear-gradient(145deg, #12100A, #1E1A10);
+  position: relative;
+}
+.monthly-widget::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+}
+.monthly-widget-empty {
+  background: rgba(0,0,0,0.03);
+  border: 1px dashed var(--border);
+  border-radius: 16px; padding: 14px 16px;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mw-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.mw-title {
+  font-size: 9px; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-month-badge {
+  font-size: 10px; font-weight: 700;
+  background: rgba(201,168,76,0.15); color: var(--gold-light);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 3px 10px; border-radius: 20px;
+}
+.mw-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 12px 14px;
+  margin-bottom: 8px; position: relative;
+}
+.mw-item:last-child { margin-bottom: 0; }
+.mw-item-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px;
+  margin-bottom: 8px;
+}
+.mw-item-left { flex: 1; }
+.mw-item-person {
+  font-size: 14px; font-weight: 700; color: var(--gold-light);
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-item-date { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.mw-item-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--gold-light);
+  letter-spacing: -0.02em; flex-shrink: 0;
+}
+.mw-item-affect {
+  font-size: 10px; color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.04);
+  padding: 4px 10px; border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-bottom: 8px;
+}
+.mw-item-bottom { display: flex; align-items: center; justify-content: space-between; }
+.mw-status {
+  font-size: 10px; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+  background: rgba(240,192,96,0.15); color: #F0C060;
+  border: 1px solid rgba(240,192,96,0.2);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.mw-btn {
+  font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 10px; border: none;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+  transition: all 0.18s;
+}
+.mw-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.mw-received {
+  font-size: 10px; font-weight: 700; color: #7DD3A0;
+  display: flex; align-items: center; gap: 4px;
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== WIDGET PAIEMENTS DU MOIS ========== */
+.monthly-widget {
+  border-radius: 20px; padding: 16px;
+  margin-bottom: 14px; overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.25);
+  background: linear-gradient(145deg, #12100A, #1E1A10);
+  position: relative;
+}
+.monthly-widget::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+}
+.monthly-widget-empty {
+  background: rgba(0,0,0,0.03);
+  border: 1px dashed var(--border);
+  border-radius: 16px; padding: 14px 16px;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mw-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.mw-title {
+  font-size: 9px; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-month-badge {
+  font-size: 10px; font-weight: 700;
+  background: rgba(201,168,76,0.15); color: var(--gold-light);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 3px 10px; border-radius: 20px;
+}
+.mw-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 12px 14px;
+  margin-bottom: 8px; position: relative;
+}
+.mw-item:last-child { margin-bottom: 0; }
+.mw-item-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px;
+  margin-bottom: 8px;
+}
+.mw-item-left { flex: 1; }
+.mw-item-person {
+  font-size: 14px; font-weight: 700; color: var(--gold-light);
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-item-date { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.mw-item-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--gold-light);
+  letter-spacing: -0.02em; flex-shrink: 0;
+}
+.mw-item-affect {
+  font-size: 10px; color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.04);
+  padding: 4px 10px; border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-bottom: 8px;
+}
+.mw-item-bottom { display: flex; align-items: center; justify-content: space-between; }
+.mw-status {
+  font-size: 10px; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+  background: rgba(240,192,96,0.15); color: #F0C060;
+  border: 1px solid rgba(240,192,96,0.2);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.mw-btn {
+  font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 10px; border: none;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+  transition: all 0.18s;
+}
+.mw-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.mw-received {
+  font-size: 10px; font-weight: 700; color: #7DD3A0;
+  display: flex; align-items: center; gap: 4px;
+}
 
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== PAIEMENTS ATTENDUS ========== */
 .pending-hero {
@@ -1006,8 +1534,184 @@ body {
   margin-left: auto; font-size: 11px; font-weight: 700; color: var(--success);
   display: flex; align-items: center; gap: 4px;
 }
-.pending-date { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+.pending-date { font-size: 12px; color: var(--gold-dark); display: flex; align-items: center; gap: 4px; font-weight: 700; }
 .pending-affect { font-size: 10px; color: var(--mid); margin-top: 4px; }
+
+/* ========== WIDGET PAIEMENTS DU MOIS ========== */
+.monthly-widget {
+  border-radius: 20px; padding: 16px;
+  margin-bottom: 14px; overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.25);
+  background: linear-gradient(145deg, #12100A, #1E1A10);
+  position: relative;
+}
+.monthly-widget::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+}
+.monthly-widget-empty {
+  background: rgba(0,0,0,0.03);
+  border: 1px dashed var(--border);
+  border-radius: 16px; padding: 14px 16px;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mw-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.mw-title {
+  font-size: 9px; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-month-badge {
+  font-size: 10px; font-weight: 700;
+  background: rgba(201,168,76,0.15); color: var(--gold-light);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 3px 10px; border-radius: 20px;
+}
+.mw-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 12px 14px;
+  margin-bottom: 8px; position: relative;
+}
+.mw-item:last-child { margin-bottom: 0; }
+.mw-item-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px;
+  margin-bottom: 8px;
+}
+.mw-item-left { flex: 1; }
+.mw-item-person {
+  font-size: 14px; font-weight: 700; color: var(--gold-light);
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-item-date { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.mw-item-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--gold-light);
+  letter-spacing: -0.02em; flex-shrink: 0;
+}
+.mw-item-affect {
+  font-size: 10px; color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.04);
+  padding: 4px 10px; border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-bottom: 8px;
+}
+.mw-item-bottom { display: flex; align-items: center; justify-content: space-between; }
+.mw-status {
+  font-size: 10px; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+  background: rgba(240,192,96,0.15); color: #F0C060;
+  border: 1px solid rgba(240,192,96,0.2);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.mw-btn {
+  font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 10px; border: none;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+  transition: all 0.18s;
+}
+.mw-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.mw-received {
+  font-size: 10px; font-weight: 700; color: #7DD3A0;
+  display: flex; align-items: center; gap: 4px;
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== WIDGET PAIEMENTS DU MOIS ========== */
+.monthly-widget {
+  border-radius: 20px; padding: 16px;
+  margin-bottom: 14px; overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.25);
+  background: linear-gradient(145deg, #12100A, #1E1A10);
+  position: relative;
+}
+.monthly-widget::before {
+  content:''; position:absolute; top:-30px; right:-30px;
+  width:120px; height:120px; border-radius:50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+}
+.monthly-widget-empty {
+  background: rgba(0,0,0,0.03);
+  border: 1px dashed var(--border);
+  border-radius: 16px; padding: 14px 16px;
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mw-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 12px;
+}
+.mw-title {
+  font-size: 9px; font-weight: 700; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-month-badge {
+  font-size: 10px; font-weight: 700;
+  background: rgba(201,168,76,0.15); color: var(--gold-light);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 3px 10px; border-radius: 20px;
+}
+.mw-item {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px; padding: 12px 14px;
+  margin-bottom: 8px; position: relative;
+}
+.mw-item:last-child { margin-bottom: 0; }
+.mw-item-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px;
+  margin-bottom: 8px;
+}
+.mw-item-left { flex: 1; }
+.mw-item-person {
+  font-size: 14px; font-weight: 700; color: var(--gold-light);
+  display: flex; align-items: center; gap: 6px;
+}
+.mw-item-date { font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.mw-item-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--gold-light);
+  letter-spacing: -0.02em; flex-shrink: 0;
+}
+.mw-item-affect {
+  font-size: 10px; color: rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.04);
+  padding: 4px 10px; border-radius: 8px;
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-bottom: 8px;
+}
+.mw-item-bottom { display: flex; align-items: center; justify-content: space-between; }
+.mw-status {
+  font-size: 10px; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+  background: rgba(240,192,96,0.15); color: #F0C060;
+  border: 1px solid rgba(240,192,96,0.2);
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.mw-btn {
+  font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border-radius: 10px; border: none;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-shadow: 0 2px 8px rgba(201,168,76,0.3);
+  transition: all 0.18s;
+}
+.mw-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(201,168,76,0.4); }
+.mw-received {
+  font-size: 10px; font-weight: 700; color: #7DD3A0;
+  display: flex; align-items: center; gap: 4px;
+}
 
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== */
 @media (max-width: 380px) {
@@ -1112,7 +1816,10 @@ body {
     </div>
 
     <!-- STAT SUMMARY ROW -->
-    <!-- Paiements urgents Juin (Mohamed uniquement) -->
+    <!-- Widget paiements du mois -->
+    <div id="monthly-widget-block"></div>
+
+    <!-- Paiements urgents (Mohamed uniquement) -->
     <div id="urgent-block"></div>
 
     <div class="quick-stats" id="quick-stats"></div>
@@ -1307,8 +2014,8 @@ const DEFAULT_EXPENSES = [
   {id:13,name:'Hlou', cat:'Cérémonie', total:1000, paid:1000, note:'Payé par Najwa comme cadeau ✓'},
   {id:5, name:'Palais Kobbet Ennhas', cat:'Salle', total:1400, paid:700, note:'700 DT payés — solde 700 DT restant'},
   {id:22,name:'Meuble Buffet', cat:'Mobilier', total:1700, paid:1700, note:'Entièrement payé ✓'},
-  {id:2, name:'Meuble Dressing', cat:'Mobilier', total:5000, paid:3250,
-    note:'3250 DT payés — solde 1750 DT restant'},
+  {id:2, name:'Meuble Dressing', cat:'Mobilier', total:5000, paid:5000,
+    note:'3250 DT payés + 1750 DT cadeau Syrine — Entièrement payé ✓'},
   {id:11,name:'Table de cuisine', cat:'Mobilier', total:600, paid:600, note:'Payée ✓'},
   {id:12,name:'Meuble TV', cat:'Mobilier', total:250, paid:250, note:'Payé avec le reste du cadeau Amal (2000 DT : 1750 DT dressing + 250 DT TV) ✓'},
   {id:14,name:'Table salon', cat:'Mobilier', total:220, paid:220, note:'Payée ✓'},
@@ -1324,14 +2031,14 @@ const DEFAULT_EXPENSES = [
   {id:32,name:'Réfrigérateur', cat:'Électroménager', total:2400, paid:2400, note:'Cadeau de Tata Dorra — entièrement payé ✓'},
   {id:25,name:"Console d'entrée", cat:'Mobilier', total:400, paid:400, note:"Console d'entrée (meuble d'entrée, pas PlayStation) — entièrement payé ✓"},
   {id:18,name:'OR pour mariage', cat:'Bijoux', total:7450, paid:7450, note:'Entièrement payé ✓'},
-  {id:29,name:'Traiteur + Décoration soirée', cat:'Restauration', total:10000, paid:8200,
-    note:'Slim : 5000 DT ✓ · Mohamed Ali : 1000 DT avance · Malek : 2200 DT contribution = 8200 DT payés — solde 1800 DT restant'},
+  {id:29,name:'Traiteur + Décoration soirée', cat:'Restauration', total:10000, paid:9700,
+    note:'Slim 5000 + avance 1000 + Malek 2200 + dette client 1500 (14 sept.) = 9700 DT · solde 300 DT restant'},
   
   
   {id:6, name:'Bande musicale', cat:'Animation', total:750, paid:750, note:'Entièrement payé ✓ · 250 DT avance + 500 DT payés par Aziz Jrad (cadeau)'},
   {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:400, note:'400 DT payés — solde 500 DT restant'},
-  {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:950, note:'950 DT payés — solde 2550 DT restant'},
-  {id:21,name:'Coiffeur / Maquillage', cat:'Beauté', total:1000, paid:0, note:'Non payé'},
+  {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:1950, note:'950 DT payés + 1000 DT dette client (14 sept.) = 1950 DT · solde 1550 DT restant'},
+  {id:21,name:'Coiffeur / Maquillage', cat:'Beauté', total:1000, paid:500, note:'500 DT dette client (14 sept.) — solde 500 DT restant'},
   {id:4, name:'Acte de mariage (عدل اشهاد)', cat:'Administratif', total:800, paid:800, note:'Entièrement payé ✓ · dont 400 DT payés par Mehdi'},
   // --- Voyage de noces (inclus dans budget global) ---
   {id:100,name:'Voyage de noces — Malaisie & Thaïlande ✈️', cat:'Voyage', total:14750, paid:14750,
@@ -1341,7 +2048,7 @@ const DEFAULT_EXPENSES = [
 const DEFAULT_GIFTS = [
   {id:1,person:'Slim',   amount:5000, status:'paid',     note:'✅ Reçu en main propre — Traiteur + Décoration soirée'},
   {id:2,person:'Najwa',  amount:1000, status:'promised', note:'Hlou en nature — promesse sûre, non remis en main propre'},
-  {id:4,person:'Syrine', amount:2000, status:'promised', note:'1700 DT TV + 300 DT Frikha — promesse sûre, non remis en main propre'},
+  {id:4,person:'Syrine', amount:1750, status:'promised', note:'🤝 Promesse sûre — affecté au Meuble Dressing'},
   {id:5,person:'Raslen', amount:430,  status:'paid',     note:'✅ Reçu en main propre — GAZ en nature'},
   {id:6,person:'Oussema',amount:2800, status:'paid',     note:'✅ Reçu en main propre — Table salle à manger'},
   {id:7,person:'Aymen',  amount:700,  status:'paid',     note:'✅ Reçu et affecté à Frikha Concept — comptabilisé dans les paiements Frikha'},
@@ -1440,7 +2147,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v66';
+const VER = 'v80';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
@@ -1495,6 +2202,17 @@ function login(user) {
   const diff = Math.ceil((wedding - today) / 86400000);
   document.getElementById('hdr-countdown').textContent = diff > 0 ? `💍 29 oct. 2026 — J-${diff}` : '💍 Félicitations !';
 
+  // Force reset if version changed
+  if (localStorage.getItem('mwr_version') !== VER) {
+    localStorage.removeItem('mwr_exp');
+    localStorage.removeItem('mwr_gft');
+    localStorage.removeItem('mwr_exp_r');
+    localStorage.removeItem('mwr_gft_r');
+    localStorage.removeItem('mwr_zhez');
+    localStorage.removeItem('mwr_pending');
+    localStorage.setItem('mwr_version', VER);
+  }
+
   loadData(); renderAll();
 }
 
@@ -1522,6 +2240,7 @@ function showPage(name, btn) {
 //  RENDER ALL
 // ============================================================
 function renderAll() {
+  renderMonthlyWidget();
   renderDepenses();
   renderGifts();
   if (currentUser === 'Rahma') renderZhez();
@@ -1886,10 +2605,9 @@ function closeChart() {
 //  PAIEMENTS URGENTS JUIN
 // ============================================================
 const URGENT_JUILLET = [
-  { icon: '💄', name: 'Coiffeur / Maquillage', sub: 'À payer avant le 05 août (via Raslen)', amount: 500, expId: 21, prevPaid: 0    },
-  { icon: '👗', name: 'Robe de mariage',        sub: 'À payer avant le 05 août (via Raslen)', amount: 500, expId: 20, prevPaid: 950  },
-  { icon: '🍽️', name: 'Traiteur + Déco soirée', sub: 'À payer avant le 05 août (via Raslen)', amount: 500, expId: 29, prevPaid: 8200 },
-  { icon: '🛋️', name: 'Frikha Concept',         sub: '→ Frikha sera 100% payé après ce versement', amount: 400, expId: 1,  prevPaid: 7650 },
+  { icon: '💄', name: 'Coiffeur / Maquillage', sub: 'À payer avant le 05 août (via Raslen)', amount: 500, expId: 21, prevPaid: 500  },
+  { icon: '👗', name: 'Robe de mariage',        sub: 'À payer avant le 05 août (via Raslen)', amount: 500, expId: 20, prevPaid: 1950 },
+  { icon: '🛋️', name: 'Frikha Concept',         sub: '→ Frikha sera 100% payé après ce versement', amount: 400, expId: 1, prevPaid: 7650 },
 ];
 const URGENT_JUIN = URGENT_JUILLET;
 
@@ -1948,8 +2666,8 @@ function renderUrgentBlock(totalRest) {
   // Compute real remaining for each urgent item
   const urgentRemaining = URGENT_JUIN.reduce((s, u) => {
     const exp = expenses.find(e => e.id === u.expId);
-    const paidToward = exp ? Math.max(0, exp.paid - u.prevPaid) : 0;
-    return s + Math.max(0, u.amount - paidToward);
+    const fullyPaid = exp ? exp.paid >= (u.prevPaid + u.amount) : false;
+    return s + (fullyPaid ? 0 : u.amount);
   }, 0);
   const restAfterReal = totalRest - urgentRemaining;
 
@@ -1969,21 +2687,21 @@ function renderUrgentBlock(totalRest) {
 
       ${URGENT_JUIN.map((u,i) => {
         const exp = expenses.find(e => e.id === u.expId);
-        // Target = prevPaid + amount. Already paid above prevPaid = what's been paid toward this juin target
-        const alreadyPaidToward = exp ? Math.max(0, exp.paid - u.prevPaid) : 0;
-        const remaining = Math.max(0, u.amount - alreadyPaidToward);
-        const fullyPaid = remaining === 0;
+        // Only mark as paid if paid amount EXCEEDS prevPaid + amount (i.e. user confirmed payment)
+        const paidToward = exp ? Math.max(0, exp.paid - u.prevPaid) : 0;
+        const remaining = Math.max(0, u.amount - paidToward);
+        const fullyPaid = exp ? exp.paid >= (u.prevPaid + u.amount) : false;
         return `
         <div class="urgent-item">
           <div class="urgent-item-left">
             <div class="urgent-item-icon">${u.icon}</div>
             <div>
               <div class="urgent-item-name">${u.name}</div>
-              <div class="urgent-item-sub">${fullyPaid ? '✓ Payé avant le 05 août ✓' : alreadyPaidToward > 0 ? 'Payé '+alreadyPaidToward.toLocaleString('fr-FR')+' DT · reste '+remaining.toLocaleString('fr-FR')+' DT' : u.sub}</div>
+              <div class="urgent-item-sub">${fullyPaid ? '✓ Payé ✓' : u.sub}</div>
             </div>
           </div>
           <div style="display:flex;align-items:center;gap:8px">
-            <div class="urgent-item-amt" style="color:${fullyPaid?'#7DD3A0':alreadyPaidToward>0?'#F0C060':'#F5A0A0'}">${remaining.toLocaleString('fr-FR')} DT</div>
+            <div class="urgent-item-amt" style="color:${fullyPaid?'#7DD3A0':'#F5A0A0'}">${fullyPaid ? '0' : u.amount.toLocaleString('fr-FR')} DT</div>
             ${fullyPaid
               ? `<span style="font-size:10px;font-weight:700;background:rgba(74,124,89,0.2);color:#7DD3A0;padding:4px 8px;border-radius:8px;border:1px solid rgba(74,124,89,0.3)">✓ Payé</span>`
               : `<button onclick="confirmUrgentPay(${i})" style="font-size:11px;font-weight:700;background:rgba(226,75,74,0.15);color:#F5A0A0;padding:5px 10px;border-radius:8px;border:1px solid rgba(226,75,74,0.3);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.15s" onmouseover="this.style.background='rgba(226,75,74,0.3)'" onmouseout="this.style.background='rgba(226,75,74,0.15)'">+ Payer</button>`
@@ -2458,30 +3176,29 @@ function renderStatsBoth(mTotal,mPaid,mRest,mGift,mPct,rTotal,rPaid,rRest,rGift,
 //  PAIEMENTS ATTENDUS
 // ============================================================
 const PENDING_DEFAULT = [
-
   {
     id:2, icon:'👤', name:'Dette Malek',
     person:'Malek', amount:2200,
-    type:'dette', date:'Septembre 2026',
+    type:'dette', date:'25 septembre 2026',
     affect:'Traiteur + Décoration soirée',
     expId:29, received:false,
-    note:'2200 DT contribution Malek — affecté au Traiteur + Déco'
+    note:'2200 DT — à recevoir le 25 septembre'
   },
   {
     id:6, icon:'👤', name:'Aziz Fourati',
     person:'Aziz Fourati', amount:2000,
-    type:'promesse', date:'À confirmer',
-    affect:'Cadeau livraison',
+    type:'promesse', date:'13 octobre 2026',
+    affect:'Photographe (paiement de la part de Rahma)',
     expId:null, received:false,
-    note:'2000 DT — paiement Photographe de la part de Rahma'
+    note:'2000 DT — à recevoir le 13 octobre'
   },
   {
     id:7, icon:'👤', name:'Habib Cherif',
     person:'Habib Cherif', amount:2850,
-    type:'promesse', date:'À confirmer',
+    type:'promesse', date:'29 juillet 2026',
     affect:'Frikha Concept (Meuble maison)',
     expId:1, received:false,
-    note:'2850 DT — affecté à Frikha Concept'
+    note:'2850 DT — à recevoir le 29 juillet'
   },
   {
     id:3, icon:'👤', name:'Paiement Youssef Bouhamed',
@@ -2489,16 +3206,31 @@ const PENDING_DEFAULT = [
     type:'dette', date:'01 septembre 2026',
     affect:'Meuble Séjour',
     expId:19, received:false,
-    note:'1500 DT à recevoir le 01 sept — comptabilisé dans Meuble Séjour'
+    note:'1500 DT — comptabilisé dans Meuble Séjour'
   },
-
   {
     id:5, icon:'🎁', name:'Contribution Aymen',
     person:'Aymen', amount:700,
-    type:'promesse', date:'Promesse confirmée',
+    type:'promesse', date:'24 septembre 2026',
     affect:'Frikha Concept (Meuble maison)',
     expId:1, received:false,
-    note:'700 DT promis par Aymen — comptabilisé dans Frikha'
+    note:'700 DT — à recevoir le 24 septembre'
+  },
+  {
+    id:8, icon:'🎁', name:'Cadeau Syrine',
+    person:'Syrine', amount:1750,
+    type:'promesse', date:'10 septembre 2026',
+    affect:'Meuble Dressing',
+    expId:2, received:false,
+    note:'1750 DT — à recevoir le 10 septembre'
+  },
+  {
+    id:9, icon:'💼', name:'Dette client',
+    person:'Client', amount:3000,
+    type:'dette', date:'15 septembre 2026',
+    affect:'Robe (1000) + Coiffeur (500) + Traiteur (1500)',
+    expId:null, received:false,
+    note:'3000 DT — à encaisser le 15 septembre · 1000 DT Robe · 500 DT Coiffeur · 1500 DT Traiteur+Déco'
   },
 ];
 
@@ -2576,18 +3308,20 @@ function pendingCard(p) {
 
   return `
     <div class="pending-item ${p.received ? 'received' : ''}">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <span class="pending-type-badge ${p.received ? 'type-recu' : (typeClass[p.type]||'')}">${p.received ? '✅ Reçu' : (typeLabels[p.type]||p.type)}</span>
+        <span style="font-size:12px;font-weight:800;color:var(--gold-dark);background:var(--warning-bg);padding:4px 10px;border-radius:20px;border:1px solid rgba(154,110,26,0.2)">📅 ${p.date}</span>
+      </div>
       <div class="pending-item-top">
         <div class="pending-item-icon" style="background:${bgIcon[p.type]||'#F5F0E8'}">${p.icon}</div>
         <div class="pending-item-info">
           <div class="pending-item-name">${p.name}</div>
           <div class="pending-item-sub">De : <strong>${p.person}</strong></div>
-          <div class="pending-affect">→ Affecté à : ${p.affect}</div>
+          <div class="pending-affect">→ ${p.affect}</div>
         </div>
         <div class="pending-item-amt" style="color:${p.received?'var(--success)':'var(--gold-dark)'}">${fmt(p.amount)}</div>
       </div>
       <div class="pending-item-bottom">
-        <span class="pending-type-badge ${p.received ? 'type-recu' : (typeClass[p.type]||'')}">${p.received ? '✅ Reçu' : (typeLabels[p.type]||p.type)}</span>
-        <span class="pending-date">📅 ${p.date}</span>
         ${p.received
           ? `<span class="pending-received-label">✓ Comptabilisé</span>`
           : `<button class="pending-confirm-btn" onclick="confirmPendingReceived(${p.id})">✓ Marquer reçu</button>`
@@ -2632,8 +3366,135 @@ function applyPendingReceived(id) {
   closeModal();
   renderPending();
   renderDepenses();
+  renderMonthlyWidget();
   toast('✓ Paiement marqué comme reçu !');
 }
+
+// ============================================================
+//  WIDGET PAIEMENTS DU MOIS — avec indicateurs visuels
+// ============================================================
+const MONTHS_FR = ['Janvier','Février','Mars','Avril','Mai','Juin',
+                   'Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+// Parse "29 juillet 2026" -> Date object
+function parseFullDate(dateStr) {
+  if (!dateStr) return null;
+  const lower = dateStr.toLowerCase();
+  const monthsMap = {
+    'janvier':0,'février':1,'fevrier':1,'mars':2,'avril':3,
+    'mai':4,'juin':5,'juillet':6,'août':7,'aout':7,
+    'septembre':8,'octobre':9,'novembre':10,'décembre':11,'decembre':11
+  };
+  let month = null, day = null, year = new Date().getFullYear();
+  for (const [name, idx] of Object.entries(monthsMap)) {
+    if (lower.includes(name)) { month = idx; break; }
+  }
+  const dayMatch = dateStr.match(/(\d{1,2})/);
+  if (dayMatch) day = parseInt(dayMatch[1]);
+  const yearMatch = dateStr.match(/(20\d{2})/);
+  if (yearMatch) year = parseInt(yearMatch[1]);
+  if (month === null) return null;
+  return new Date(year, month, day || 1);
+}
+
+// Get urgency indicator
+function getUrgency(dueDate) {
+  if (!dueDate) return { label: '🟢 À venir', color: '#3D7A52', bg: 'rgba(61,122,82,0.15)', border: 'rgba(61,122,82,0.3)' };
+  const now   = new Date(); now.setHours(0,0,0,0);
+  const due   = new Date(dueDate); due.setHours(0,0,0,0);
+  const diff  = Math.ceil((due - now) / 86400000);
+  if (diff < 0)  return { label: '🔴 En retard',          color: '#C04040', bg: 'rgba(192,64,64,0.15)',  border: 'rgba(192,64,64,0.3)',  days: diff };
+  if (diff <= 7) return { label: `🟠 Dans ${diff} jour${diff>1?'s':''}`, color: '#C98030', bg: 'rgba(201,128,48,0.15)', border: 'rgba(201,128,48,0.3)', days: diff };
+  return          { label: `🟢 Dans ${diff} jours`,        color: '#3D7A52', bg: 'rgba(61,122,82,0.15)', border: 'rgba(61,122,82,0.3)',  days: diff };
+}
+
+function renderMonthlyWidget() {
+  const el = document.getElementById('monthly-widget-block');
+  if (!el) return;
+
+  const now      = new Date(); now.setHours(0,0,0,0);
+  const monthName = MONTHS_FR[now.getMonth()];
+  const curYear  = now.getFullYear();
+
+  // Include: not received AND (this month OR overdue from past)
+  const active = pendingItems.filter(p => {
+    if (p.received) return false;
+    const d = parseFullDate(p.date);
+    if (!d) return false;
+    // Show if due this month OR already overdue
+    return d <= new Date(curYear, now.getMonth() + 1, 0); // up to end of current month or past
+  }).map(p => ({
+    ...p,
+    _dueDate: parseFullDate(p.date),
+    _urgency: getUrgency(parseFullDate(p.date))
+  })).sort((a, b) => {
+    // Overdue first, then by date
+    if (!a._dueDate) return 1;
+    if (!b._dueDate) return -1;
+    return a._dueDate - b._dueDate;
+  });
+
+  if (active.length === 0) {
+    el.innerHTML = `
+      <div class="monthly-widget-empty">
+        <span style="font-size:22px">✅</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--mid)">Aucun paiement à récupérer ce mois-ci</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">Tous les paiements sont à jour 🎉</div>
+        </div>
+      </div>`;
+    return;
+  }
+
+  const total   = active.reduce((s, p) => s + p.amount, 0);
+  const overdue = active.filter(p => p._urgency.days !== undefined && p._urgency.days < 0).length;
+  const urgent  = active.filter(p => p._urgency.days !== undefined && p._urgency.days >= 0 && p._urgency.days <= 7).length;
+
+  el.innerHTML = `
+    <div class="monthly-widget">
+      <div class="mw-header">
+        <div class="mw-title">📌 Paiements à encaisser</div>
+        <span class="mw-month-badge">${monthName} ${curYear}</span>
+      </div>
+
+      ${overdue > 0 ? `<div style="background:rgba(192,64,64,0.12);border:1px solid rgba(192,64,64,0.25);border-radius:10px;padding:8px 12px;margin-bottom:10px;font-size:11px;color:#F09090;font-weight:600">
+        ⚠️ ${overdue} paiement${overdue>1?'s':''} en retard — à régulariser en priorité
+      </div>` : ''}
+
+      ${active.map(p => {
+        const u = p._urgency;
+        return `
+        <div class="mw-item" style="border-color:${u.border};background:${u.bg}">
+          <div class="mw-item-top">
+            <div class="mw-item-left">
+              <div class="mw-item-person">${p.icon} ${p.person}</div>
+              <div class="mw-item-date">📅 ${p.date}</div>
+            </div>
+            <div class="mw-item-amount" style="color:${u.color}">${fmt(p.amount)}</div>
+          </div>
+          <div class="mw-item-affect">→ Destiné à : ${p.affect}</div>
+          <div class="mw-item-bottom">
+            <span class="mw-status" style="background:${u.bg};color:${u.color};border-color:${u.border}">${u.label}</span>
+            <button class="mw-btn" onclick="confirmPendingReceived(${p.id})">✓ Marquer reçu</button>
+          </div>
+        </div>`;
+      }).join('')}
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.07)">
+        <div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">${active.length} paiement${active.length>1?'s':''} · Total</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--gold-light)">${fmt(total)}</div>
+      </div>
+    </div>
+  `;
+}
+
+// Auto-refresh widget every 60 seconds (live date updates)
+setInterval(() => {
+  if (document.getElementById('page-depenses') &&
+      document.getElementById('page-depenses').classList.contains('active')) {
+    renderMonthlyWidget();
+  }
+}, 60000);
 
 // ============================================================
 //  MODAL CTRL
