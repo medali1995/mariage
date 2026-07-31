@@ -892,6 +892,130 @@ body {
   display: flex; align-items: center; gap: 4px;
 }
 
+/* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== WIDGET PAIEMENTS DU MOIS ========== */
 .monthly-widget {
   border-radius: 20px; padding: 16px;
@@ -978,6 +1102,130 @@ body {
 .mw-received {
   font-size: 10px; font-weight: 700; color: #7DD3A0;
   display: flex; align-items: center; gap: 4px;
+}
+
+/* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
 }
 
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== PAIEMENTS ATTENDUS ========== */
@@ -1123,6 +1371,130 @@ body {
   display: flex; align-items: center; gap: 4px;
 }
 
+/* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== WIDGET PAIEMENTS DU MOIS ========== */
 .monthly-widget {
   border-radius: 20px; padding: 16px;
@@ -1209,6 +1581,130 @@ body {
 .mw-received {
   font-size: 10px; font-weight: 700; color: #7DD3A0;
   display: flex; align-items: center; gap: 4px;
+}
+
+/* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
 }
 
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== PAIEMENTS URGENTS ========== */
@@ -1394,6 +1890,130 @@ body {
   display: flex; align-items: center; gap: 4px;
 }
 
+/* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== WIDGET PAIEMENTS DU MOIS ========== */
 .monthly-widget {
   border-radius: 20px; padding: 16px;
@@ -1480,6 +2100,130 @@ body {
 .mw-received {
   font-size: 10px; font-weight: 700; color: #7DD3A0;
   display: flex; align-items: center; gap: 4px;
+}
+
+/* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
 }
 
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== PAIEMENTS ATTENDUS ========== */
@@ -1625,6 +2369,130 @@ body {
   display: flex; align-items: center; gap: 4px;
 }
 
+/* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== WIDGET PAIEMENTS DU MOIS ========== */
 .monthly-widget {
   border-radius: 20px; padding: 16px;
@@ -1713,6 +2581,130 @@ body {
   display: flex; align-items: center; gap: 4px;
 }
 
+/* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
+/* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== *//* ========== AGENDA PAGE ========== */
+.agenda-group { margin-bottom: 20px; }
+.agenda-group-title {
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 10px; display: flex; align-items: center; gap: 8px;
+}
+.agenda-group-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+.agenda-card {
+  background: var(--card-bg); border: 1px solid var(--border-soft);
+  border-radius: 16px; padding: 14px 16px; margin-bottom: 8px;
+  box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
+}
+.agenda-card.ag-paid {
+  background: rgba(234,244,238,0.6); border-color: var(--success-border);
+}
+.agenda-card.ag-overdue { border-color: var(--danger-border); }
+.agenda-card.ag-soon { border-color: rgba(201,128,48,0.3); }
+
+.agenda-card-top {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 10px; margin-bottom: 8px;
+}
+.agenda-card-left { flex: 1; }
+.agenda-card-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+.agenda-card-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.agenda-card-amt { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
+
+.agenda-card-bottom {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+.agenda-status {
+  font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.ag-status-paid    { background: var(--success-bg); color: var(--success); }
+.ag-status-pending { background: var(--warning-bg); color: var(--warning); }
+.ag-status-overdue { background: var(--danger-bg);  color: var(--danger);  }
+.ag-status-soon    { background: #FEF3DC; color: #9A6E1A; }
+
+.agenda-confirm-btn {
+  font-size: 11px; font-weight: 700; padding: 5px 12px;
+  border-radius: 10px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+  color: white; font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.18s;
+}
+.agenda-confirm-btn:hover { transform: translateY(-1px); }
+
+.agenda-note {
+  margin-top: 8px; font-size: 10px; color: var(--mid);
+  background: rgba(0,0,0,0.03); padding: 6px 10px;
+  border-radius: 8px; border-left: 2px solid var(--gold);
+}
+
+.agenda-summary-card {
+  border-radius: 18px; padding: 16px 18px; margin-bottom: 16px;
+  background: linear-gradient(145deg, #1A1208, #2A1E10);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+
 /* ========== RESPONSIVE TWEAKS ========== *//* ========== RESPONSIVE TWEAKS ========== */
 @media (max-width: 380px) {
   .hero-amount { font-size: 34px; }
@@ -1787,6 +2779,9 @@ body {
       </button>
       <button class="nav-tab" onclick="showPage('pending',this)">
         <span class="nav-tab-icon">⏳</span>Attendus
+      </button>
+      <button class="nav-tab" onclick="showPage('agenda',this)">
+        <span class="nav-tab-icon">🗓️</span>Agenda
       </button>
 
     </div>
@@ -1960,6 +2955,7 @@ body {
   <!-- ======== PAIEMENTS ATTENDUS ======== -->
   <div class="page" id="page-pending"></div>
 
+  <div class="page" id="page-agenda"></div>
   <button class="fab" id="main-fab" onclick="openAddModal()">+</button>
 </div>
 
@@ -2011,13 +3007,11 @@ const DEFAULT_EXPENSES = [
   {id:1, name:'Frikha Concept (Meuble maison)', cat:'Mobilier', total:8050, paid:7650,
     note:'4100 DT payés · 700 DT Aymen (promesse) · 2850 DT Habib Cherif (attendu) = 7650 DT payés · solde 400 DT restant'},
   {id:3, name:'Photographe', cat:'Cérémonie', total:1750, paid:1750, note:'Entièrement payé ✓ · 2000 DT paiement de la part de Rahma via Aziz Fourati'},
-  {id:13,name:'Hlou', cat:'Cérémonie', total:1000, paid:1000, note:'Payé par Najwa comme cadeau ✓'},
   {id:5, name:'Palais Kobbet Ennhas', cat:'Salle', total:1400, paid:700, note:'700 DT payés — solde 700 DT restant'},
   {id:22,name:'Meuble Buffet', cat:'Mobilier', total:1700, paid:1700, note:'Entièrement payé ✓'},
   {id:2, name:'Meuble Dressing', cat:'Mobilier', total:5000, paid:5000,
     note:'3250 DT payés + 1750 DT cadeau Syrine — Entièrement payé ✓'},
   {id:11,name:'Table de cuisine', cat:'Mobilier', total:600, paid:600, note:'Payée ✓'},
-  {id:12,name:'Meuble TV', cat:'Mobilier', total:250, paid:250, note:'Payé avec le reste du cadeau Amal (2000 DT : 1750 DT dressing + 250 DT TV) ✓'},
   {id:14,name:'Table salon', cat:'Mobilier', total:220, paid:220, note:'Payée ✓'},
   {id:15,name:'Matelas Confortex', cat:'Mobilier', total:900, paid:900, note:'Payé ✓'},
   {id:19,name:'Meuble Séjour', cat:'Mobilier', total:3800, paid:2050, note:'550 DT avance + 1500 DT Youssef Bouhamed (01 sept.) = 2050 DT payés — solde 1750 DT restant'},
@@ -2025,9 +3019,11 @@ const DEFAULT_EXPENSES = [
   {id:27,name:'Table basse', cat:'Mobilier', total:600, paid:600, note:'Cadeau de Riadh — payé 100% ✓'},
   {id:7, name:'Four', cat:'Électroménager', total:780, paid:780, note:'Entièrement payé ✓'},
   {id:8, name:'GAZ', cat:'Électroménager', total:430, paid:430, note:'Cadeau par Raslen — payé ✓'},
-  {id:9, name:'TV 65"', cat:'Électroménager', total:1700, paid:1700,
-    note:'Syrine a donné 2000 DT total : 1700 DT pour la TV + 300 DT pour Frikha Concept — TV payée ✓'},
-  {id:10,name:'Machine à laver', cat:'Électroménager', total:1200, paid:1200, note:'Payée ✓'},
+  {id:37,name:'Renouvellement maison', cat:'Mobilier', total:4800, paid:4800, note:'Entièrement payé ✓'},
+  {id:33,name:'Micro-onde encastrable', cat:'Électroménager', total:1050, paid:1050, note:'Entièrement payé ✓'},
+  {id:34,name:"Fontaine d'eau",         cat:'Électroménager', total:550,  paid:550,  note:'Entièrement payé ✓'},
+  {id:35,name:'Hôte aspirante',          cat:'Électroménager', total:460,  paid:460,  note:'Entièrement payé ✓'},
+  {id:36,name:'Air Fryer',               cat:'Électroménager', total:260,  paid:260,  note:'Entièrement payé ✓'},
   {id:32,name:'Réfrigérateur', cat:'Électroménager', total:2400, paid:2400, note:'Cadeau de Tata Dorra — entièrement payé ✓'},
   {id:25,name:"Console d'entrée", cat:'Mobilier', total:400, paid:400, note:"Console d'entrée (meuble d'entrée, pas PlayStation) — entièrement payé ✓"},
   {id:18,name:'OR pour mariage', cat:'Bijoux', total:7450, paid:7450, note:'Entièrement payé ✓'},
@@ -2047,7 +3043,6 @@ const DEFAULT_EXPENSES = [
 
 const DEFAULT_GIFTS = [
   {id:1,person:'Slim',   amount:5000, status:'paid',     note:'✅ Reçu en main propre — Traiteur + Décoration soirée'},
-  {id:2,person:'Najwa',  amount:1000, status:'promised', note:'Hlou en nature — promesse sûre, non remis en main propre'},
   {id:4,person:'Syrine', amount:1750, status:'promised', note:'🤝 Promesse sûre — affecté au Meuble Dressing'},
   {id:5,person:'Raslen', amount:430,  status:'paid',     note:'✅ Reçu en main propre — GAZ en nature'},
   {id:6,person:'Oussema',amount:2800, status:'paid',     note:'✅ Reçu en main propre — Table salle à manger'},
@@ -2147,7 +3142,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v80';
+const VER = 'v89';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
@@ -2159,6 +3154,7 @@ function saveGifts() {
 function loadData() {
   loadZhez();
   loadPending();
+  loadAgenda();
   if (currentUser === 'Rahma') {
     try { const d = localStorage.getItem('mwr_exp_r'); expenses = d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_EXPENSES)); } catch(e) { expenses = JSON.parse(JSON.stringify(RAHMA_EXPENSES)); }
     try { const d = localStorage.getItem('mwr_gft_r'); gifts = d ? JSON.parse(d) : JSON.parse(JSON.stringify(RAHMA_GIFTS)); } catch(e) { gifts = JSON.parse(JSON.stringify(RAHMA_GIFTS)); }
@@ -2210,6 +3206,7 @@ function login(user) {
     localStorage.removeItem('mwr_gft_r');
     localStorage.removeItem('mwr_zhez');
     localStorage.removeItem('mwr_pending');
+  localStorage.removeItem('mwr_agenda');
     localStorage.setItem('mwr_version', VER);
   }
 
@@ -2233,6 +3230,7 @@ function showPage(name, btn) {
   document.getElementById('main-fab').style.display = name === 'depenses' ? 'flex' : 'none';
   if (name === 'stats') renderStats(statsView || 'self');
   if (name === 'pending') renderPending();
+  if (name === 'agenda') renderAgenda();
   closeModal();
 }
 
@@ -3197,8 +4195,8 @@ const PENDING_DEFAULT = [
     person:'Habib Cherif', amount:2850,
     type:'promesse', date:'29 juillet 2026',
     affect:'Frikha Concept (Meuble maison)',
-    expId:1, received:false,
-    note:'2850 DT — à recevoir le 29 juillet'
+    expId:1, received:true,
+    note:'2850 DT reçus ✓ — comptabilisé dans Frikha Concept'
   },
   {
     id:3, icon:'👤', name:'Paiement Youssef Bouhamed',
@@ -3497,6 +4495,168 @@ setInterval(() => {
 }, 60000);
 
 // ============================================================
+//  AGENDA PERSONNEL (hors budget)
+// ============================================================
+const AGENDA_DEFAULT = [
+  // === Electro Hakim ===
+  { id:'eh0', group:'Electro Hakim', icon:'⚡', name:'Acompte espèces', sub:'Déjà réglé en cash',
+    amount:600, date:null, paid:true, note:'600 DT payés en espèces ✓' },
+  { id:'eh1', group:'Electro Hakim', icon:'🏦', name:'Traite — Mensualité 1',
+    sub:'Électroménager — traite bancaire', amount:240, date:'05/09/2026', paid:false, note:'' },
+  { id:'eh2', group:'Electro Hakim', icon:'🏦', name:'Traite — Mensualité 2',
+    sub:'Électroménager — traite bancaire', amount:240, date:'05/10/2026', paid:false, note:'' },
+  { id:'eh3', group:'Electro Hakim', icon:'🏦', name:'Traite — Mensualité 3',
+    sub:'Électroménager — traite bancaire', amount:240, date:'05/11/2026', paid:false, note:'' },
+  { id:'eh4', group:'Electro Hakim', icon:'🏦', name:'Traite — Mensualité 4',
+    sub:'Électroménager — traite bancaire', amount:240, date:'05/12/2026', paid:false, note:'' },
+  { id:'eh5', group:'Electro Hakim', icon:'🏦', name:'Traite — Mensualité 5',
+    sub:'Électroménager — traite bancaire', amount:240, date:'05/01/2027', paid:false, note:'' },
+  { id:'eh6', group:'Electro Hakim', icon:'🏦', name:'Traite — Mensualité 6',
+    sub:'Électroménager — traite bancaire', amount:520, date:'05/02/2027', paid:false, note:'Dernière mensualité (solde)' },
+  // === Renouvellement Maison ===
+  { id:'rm1', group:'Renouvellement Maison', icon:'🏠', name:'Traite bancaire 1',
+    sub:'Renouvellement maison', amount:850, date:'30/11/2026', paid:false, note:'' },
+  { id:'rm2', group:'Renouvellement Maison', icon:'🏠', name:'Traite bancaire 2',
+    sub:'Renouvellement maison', amount:1000, date:'16/12/2026', paid:false, note:'' },
+];
+
+let agendaItems = [];
+
+function loadAgenda() {
+  try {
+    const d = localStorage.getItem('mwr_agenda');
+    agendaItems = d ? JSON.parse(d) : JSON.parse(JSON.stringify(AGENDA_DEFAULT));
+  } catch(e) { agendaItems = JSON.parse(JSON.stringify(AGENDA_DEFAULT)); }
+}
+function saveAgenda() { try { localStorage.setItem('mwr_agenda', JSON.stringify(agendaItems)); } catch(e){} }
+
+function parseAgendaDate(str) {
+  if (!str) return null;
+  const [d, m, y] = str.split('/');
+  return new Date(parseInt(y), parseInt(m)-1, parseInt(d));
+}
+
+function agendaUrgency(item) {
+  if (item.paid) return { label:'✅ Payé', cls:'ag-status-paid', color:'var(--success)', cardCls:'ag-paid' };
+  if (!item.date) return { label:'—', cls:'ag-status-pending', color:'var(--muted)', cardCls:'' };
+  const now  = new Date(); now.setHours(0,0,0,0);
+  const due  = parseAgendaDate(item.date);
+  const diff = Math.ceil((due - now) / 86400000);
+  if (diff < 0)  return { label:`🔴 En retard (${Math.abs(diff)}j)`, cls:'ag-status-overdue', color:'var(--danger)',  cardCls:'ag-overdue' };
+  if (diff <= 7) return { label:`🟠 Dans ${diff} jour${diff>1?'s':''}`,  cls:'ag-status-soon',    color:'#C98030', cardCls:'ag-soon'    };
+  return             { label:`🟢 Prévu le ${item.date}`,              cls:'ag-status-pending', color:'var(--warning)', cardCls:'' };
+}
+
+function renderAgenda() {
+  const page = document.getElementById('page-agenda');
+  if (!page) return;
+
+  // Only show for Mohamed
+  if (currentUser !== 'Mohamed') {
+    page.innerHTML = `<div class="empty-state" style="margin-top:40px">
+      <div class="empty-state-icon">🔒</div>
+      <div class="empty-state-text">Cette page est réservée à Mohamed</div>
+    </div>`;
+    return;
+  }
+
+  // Totals
+  const totalAll  = agendaItems.reduce((s,i) => s + i.amount, 0);
+  const totalPaid = agendaItems.filter(i => i.paid).reduce((s,i) => s + i.amount, 0);
+  const totalRest = totalAll - totalPaid;
+  const overdue   = agendaItems.filter(i => !i.paid && parseAgendaDate(i.date) && parseAgendaDate(i.date) < new Date()).length;
+
+  // Group items
+  const groups = [...new Set(agendaItems.map(i => i.group))];
+
+  const summaryHTML = `
+    <div class="agenda-summary-card">
+      <div style="font-size:9px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:8px">🗓️ Agenda personnel — Traites & Échéances</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:500;color:var(--gold-light);line-height:1;margin-bottom:4px">${fmt(totalAll)}</div>
+      <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:14px">Total engagements · hors budget application</div>
+      <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-bottom:14px">
+        <div style="height:100%;width:${Math.round(totalPaid/totalAll*100)}%;background:linear-gradient(90deg,var(--gold-dark),var(--gold));border-radius:3px"></div>
+      </div>
+      <div style="display:flex;gap:0">
+        <div style="flex:1"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">Payé</div><div style="font-size:14px;font-weight:700;color:#7DD3A0;margin-top:3px">${fmt(totalPaid)}</div></div>
+        <div style="flex:1;border-left:1px solid rgba(255,255,255,0.07);padding-left:12px;margin-left:12px"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">Restant</div><div style="font-size:14px;font-weight:700;color:#F09090;margin-top:3px">${fmt(totalRest)}</div></div>
+        ${overdue > 0 ? `<div style="flex:1;border-left:1px solid rgba(255,255,255,0.07);padding-left:12px;margin-left:12px"><div style="font-size:9px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em">En retard</div><div style="font-size:14px;font-weight:700;color:#F09090;margin-top:3px">${overdue}</div></div>` : ''}
+      </div>
+    </div>`;
+
+  const groupsHTML = groups.map(group => {
+    const items = agendaItems.filter(i => i.group === group);
+    const gTotal = items.reduce((s,i) => s + i.amount, 0);
+    const gPaid  = items.filter(i => i.paid).reduce((s,i) => s + i.amount, 0);
+
+    const cardsHTML = items.map(item => {
+      const u = agendaUrgency(item);
+      return `
+        <div class="agenda-card ${u.cardCls}">
+          <div class="agenda-card-top">
+            <div class="agenda-card-left">
+              <div class="agenda-card-name">${item.icon} ${item.name}</div>
+              <div class="agenda-card-sub">${item.date ? '📅 ' + item.date : item.sub}</div>
+            </div>
+            <div class="agenda-card-amt" style="color:${item.paid?'var(--success)':u.color}">${fmt(item.amount)}</div>
+          </div>
+          ${item.note ? `<div class="agenda-note">ℹ️ ${item.note}</div>` : ''}
+          <div class="agenda-card-bottom" style="margin-top:8px">
+            <span class="agenda-status ${u.cls}">${u.label}</span>
+            ${!item.paid ? `<button class="agenda-confirm-btn" onclick="confirmAgendaPaid('${item.id}')">✓ Marquer payé</button>` : `<span style="font-size:11px;font-weight:600;color:var(--success)">✓ Réglé</span>`}
+          </div>
+        </div>`;
+    }).join('');
+
+    return `
+      <div class="agenda-group">
+        <div class="agenda-group-title">
+          ${group}
+          <span style="color:var(--gold-dark);font-size:10px;font-weight:700">${fmt(gPaid)} / ${fmt(gTotal)}</span>
+        </div>
+        ${cardsHTML}
+      </div>`;
+  }).join('');
+
+  page.innerHTML = summaryHTML + groupsHTML;
+}
+
+function confirmAgendaPaid(id) {
+  const item = agendaItems.find(i => i.id === id);
+  if (!item) return;
+
+  document.getElementById('modal-title').textContent = '✓ Confirmer le paiement';
+  document.getElementById('modal-body').innerHTML = `
+    <div style="text-align:center;padding:8px 0 16px">
+      <div style="font-size:40px;margin-bottom:12px">${item.icon}</div>
+      <div style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:4px">${item.name}</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:20px">${item.group}${item.date?' · '+item.date:''}</div>
+      <div style="background:var(--success-bg);border:1px solid var(--success-border);border-radius:16px;padding:16px;margin-bottom:12px">
+        <div style="font-size:10px;font-weight:700;color:var(--success);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Montant payé</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--success)">${fmt(item.amount)}</div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);background:rgba(0,0,0,0.03);border-radius:10px;padding:10px">
+        ⚠️ Ce paiement est hors budget — il ne modifie aucun total de l'application.
+      </div>
+    </div>`;
+  document.getElementById('modal-actions').innerHTML = `
+    <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+    <button class="btn-save" onclick="applyAgendaPaid('${id}')">✓ Confirmer</button>
+  `;
+  openModal();
+}
+
+function applyAgendaPaid(id) {
+  const idx = agendaItems.findIndex(i => i.id === id);
+  if (idx < 0) { closeModal(); return; }
+  agendaItems[idx].paid = true;
+  saveAgenda();
+  closeModal();
+  renderAgenda();
+  toast('✓ Traite marquée comme payée !');
+}
+
+// ============================================================
 //  MODAL CTRL
 // ============================================================
 function openModal() {
@@ -3518,6 +4678,7 @@ if (localStorage.getItem('mwr_version') !== VER) {
   localStorage.removeItem('mwr_gft_r');
   localStorage.removeItem('mwr_zhez');
   localStorage.removeItem('mwr_pending');
+  localStorage.removeItem('mwr_agenda');
   localStorage.setItem('mwr_version', VER);
 }
 loadData();
