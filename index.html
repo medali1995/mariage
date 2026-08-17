@@ -3004,8 +3004,8 @@ const CAT_CLASSES = {
 const VOYAGE_TOTAL = 14750;
 
 const DEFAULT_EXPENSES = [
-  {id:1, name:'Frikha Concept (Meuble maison)', cat:'Mobilier', total:8050, paid:7650,
-    note:'4100 DT payés · 700 DT Aymen (promesse) · 2850 DT Habib Cherif (attendu) = 7650 DT payés · solde 400 DT restant'},
+  {id:1, name:'Frikha Concept (Meuble maison)', cat:'Mobilier', total:8050, paid:8050,
+    note:'4100 DT + 700 DT Aymen + 2850 DT Habib + 400 DT payés (30 août) = 8050 DT · Entièrement payé ✓'},
   {id:3, name:'Photographe', cat:'Cérémonie', total:1750, paid:1750, note:'Entièrement payé ✓ · 2000 DT paiement de la part de Rahma via Aziz Fourati'},
   {id:5, name:'Palais Kobbet Ennhas', cat:'Salle', total:1400, paid:700, note:'700 DT payés — solde 700 DT restant'},
   {id:22,name:'Meuble Buffet', cat:'Mobilier', total:1700, paid:1700, note:'Entièrement payé ✓'},
@@ -3014,7 +3014,7 @@ const DEFAULT_EXPENSES = [
   {id:11,name:'Table de cuisine', cat:'Mobilier', total:600, paid:600, note:'Payée ✓'},
   {id:14,name:'Table salon', cat:'Mobilier', total:220, paid:220, note:'Payée ✓'},
   {id:15,name:'Matelas Confortex', cat:'Mobilier', total:900, paid:900, note:'Payé ✓'},
-  {id:19,name:'Meuble Séjour', cat:'Mobilier', total:3800, paid:2050, note:'550 DT avance + 1500 DT Youssef Bouhamed (01 sept.) = 2050 DT payés — solde 1750 DT restant'},
+  {id:19,name:'Meuble Séjour', cat:'Mobilier', total:3800, paid:1550, note:'550 DT avance + 1000 DT Youssef Bouhamed (01 sept.) = 1550 DT payés — solde 2250 DT restant'},
   {id:26,name:'Table salle à manger', cat:'Mobilier', total:2800, paid:2800, note:'Payé 100% par Oussema — cadeau ✓'},
   {id:27,name:'Table basse', cat:'Mobilier', total:600, paid:600, note:'Cadeau de Riadh — payé 100% ✓'},
   {id:7, name:'Four', cat:'Électroménager', total:780, paid:780, note:'Entièrement payé ✓'},
@@ -3027,13 +3027,13 @@ const DEFAULT_EXPENSES = [
   {id:32,name:'Réfrigérateur', cat:'Électroménager', total:2400, paid:2400, note:'Cadeau de Tata Dorra — entièrement payé ✓'},
   {id:25,name:"Console d'entrée", cat:'Mobilier', total:400, paid:400, note:"Console d'entrée (meuble d'entrée, pas PlayStation) — entièrement payé ✓"},
   {id:18,name:'OR pour mariage', cat:'Bijoux', total:7450, paid:7450, note:'Entièrement payé ✓'},
-  {id:29,name:'Traiteur + Décoration soirée', cat:'Restauration', total:10000, paid:9700,
-    note:'Slim 5000 + avance 1000 + Malek 2200 + dette client 1500 (14 sept.) = 9700 DT · solde 300 DT restant'},
+  {id:29,name:'Traiteur + Décoration soirée', cat:'Restauration', total:10000, paid:7500,
+    note:'Slim 5000 + avance 1000 + dette client 1500 (15 sept.) = 7500 DT · solde 2500 DT restant'},
   
   
   {id:6, name:'Bande musicale', cat:'Animation', total:750, paid:750, note:'Entièrement payé ✓ · 250 DT avance + 500 DT payés par Aziz Jrad (cadeau)'},
   {id:24,name:'Bande soirée', cat:'Animation', total:900, paid:400, note:'400 DT payés — solde 500 DT restant'},
-  {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:1950, note:'950 DT payés + 1000 DT dette client (14 sept.) = 1950 DT · solde 1550 DT restant'},
+  {id:20,name:'Robe de mariage', cat:'Habillement', total:3500, paid:2900, note:'950 DT avance + 1000 DT dette client (15 sept.) + 950 DT dette Amal (15 août) = 2900 DT · solde 600 DT restant'},
   {id:21,name:'Coiffeur / Maquillage', cat:'Beauté', total:1000, paid:500, note:'500 DT dette client (14 sept.) — solde 500 DT restant'},
   {id:4, name:'Acte de mariage (عدل اشهاد)', cat:'Administratif', total:800, paid:800, note:'Entièrement payé ✓ · dont 400 DT payés par Mehdi'},
   // --- Voyage de noces (inclus dans budget global) ---
@@ -3142,7 +3142,7 @@ let expenses = [], gifts = [], currentUser = null, activeFilter = 'Tous';
 // ============================================================
 //  STORAGE
 // ============================================================
-const VER = 'v89';
+const VER = 'v96';
 function saveExpenses() {
   const key = currentUser === 'Rahma' ? 'mwr_exp_r' : 'mwr_exp';
   try { localStorage.setItem(key, JSON.stringify(expenses)); } catch(e){}
@@ -3603,9 +3603,7 @@ function closeChart() {
 //  PAIEMENTS URGENTS JUIN
 // ============================================================
 const URGENT_JUILLET = [
-  { icon: '💄', name: 'Coiffeur / Maquillage', sub: 'À payer avant le 05 août (via Raslen)', amount: 500, expId: 21, prevPaid: 500  },
-  { icon: '👗', name: 'Robe de mariage',        sub: 'À payer avant le 05 août (via Raslen)', amount: 500, expId: 20, prevPaid: 1950 },
-  { icon: '🛋️', name: 'Frikha Concept',         sub: '→ Frikha sera 100% payé après ce versement', amount: 400, expId: 1, prevPaid: 7650 },
+  { icon: '💄', name: 'Coiffeur / Maquillage', sub: 'À payer avant le 30 août', amount: 500, expId: 21, prevPaid: 500 },
 ];
 const URGENT_JUIN = URGENT_JUILLET;
 
@@ -3622,7 +3620,7 @@ function confirmUrgentPay(idx) {
     <div style="text-align:center;padding:8px 0 16px">
       <div style="font-size:40px;margin-bottom:12px">${u.icon}</div>
       <div style="font-size:16px;font-weight:700;color:var(--dark);margin-bottom:6px">${u.name}</div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:20px">Acompte obligatoire — Avant le 05 août 2026</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:20px">Acompte obligatoire — Avant le 30 août 2026</div>
       <div style="background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:16px;padding:16px;margin-bottom:16px">
         <div style="font-size:10px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px">Reste à payer (juin)</div>
         <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:var(--danger)">${remaining.toLocaleString('fr-FR')} DT</div>
@@ -3646,7 +3644,7 @@ function applyUrgentPay(idx, amount) {
   const expIdx = expenses.findIndex(e => e.id === u.expId);
   if (expIdx < 0) { toast('⚠️ Erreur'); closeModal(); return; }
   expenses[expIdx].paid = Math.min(expenses[expIdx].paid + amount, expenses[expIdx].total);
-  expenses[expIdx].note = expenses[expIdx].note + ' · +' + amount.toLocaleString('fr-FR') + ' DT (payé avant 05 août)';
+  expenses[expIdx].note = expenses[expIdx].note + ' · +' + amount.toLocaleString('fr-FR') + ' DT (payé avant 30 août)';
   saveExpenses();
   closeModal();
   renderAll();
@@ -3674,7 +3672,7 @@ function renderUrgentBlock(totalRest) {
       <div class="urgent-header">
         <div class="urgent-title-wrap">
           <div class="urgent-dot"></div>
-          <div class="urgent-title">📅 Paiements — Avant le 05 août</div>
+          <div class="urgent-title">📅 Paiements — Avant le 30 août</div>
         </div>
         <span class="urgent-badge">${URGENT_JUIN.length} postes</span>
       </div>
@@ -3710,7 +3708,7 @@ function renderUrgentBlock(totalRest) {
       }).join('')}
 
       <div class="urgent-total-row">
-        <div class="urgent-total-label">Reste à payer — Avant 05 août</div>
+        <div class="urgent-total-label">Reste à payer — Avant 30 août</div>
         <div class="urgent-total-val">${urgentRemaining.toLocaleString('fr-FR')} DT</div>
       </div>
 
@@ -4174,14 +4172,7 @@ function renderStatsBoth(mTotal,mPaid,mRest,mGift,mPct,rTotal,rPaid,rRest,rGift,
 //  PAIEMENTS ATTENDUS
 // ============================================================
 const PENDING_DEFAULT = [
-  {
-    id:2, icon:'👤', name:'Dette Malek',
-    person:'Malek', amount:2200,
-    type:'dette', date:'25 septembre 2026',
-    affect:'Traiteur + Décoration soirée',
-    expId:29, received:false,
-    note:'2200 DT — à recevoir le 25 septembre'
-  },
+
   {
     id:6, icon:'👤', name:'Aziz Fourati',
     person:'Aziz Fourati', amount:2000,
@@ -4200,11 +4191,11 @@ const PENDING_DEFAULT = [
   },
   {
     id:3, icon:'👤', name:'Paiement Youssef Bouhamed',
-    person:'Youssef Bouhamed', amount:1500,
+    person:'Youssef Bouhamed', amount:1000,
     type:'dette', date:'01 septembre 2026',
     affect:'Meuble Séjour',
     expId:19, received:false,
-    note:'1500 DT — comptabilisé dans Meuble Séjour'
+    note:'1000 DT — à recevoir le 01 septembre'
   },
   {
     id:5, icon:'🎁', name:'Contribution Aymen',
@@ -4221,6 +4212,14 @@ const PENDING_DEFAULT = [
     affect:'Meuble Dressing',
     expId:2, received:false,
     note:'1750 DT — à recevoir le 10 septembre'
+  },
+  {
+    id:10, icon:'🎁', name:'Paiement Amal',
+    person:'Amal', amount:950,
+    type:'dette', date:'15 août 2026',
+    affect:'Robe de mariage',
+    expId:20, received:true,
+    note:'950 DT dette client reçue ✓ — affecté au paiement Robe de mariage'
   },
   {
     id:9, icon:'💼', name:'Dette client',
